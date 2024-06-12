@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="This moss-themed villa, akin to a hidden green gem, is adorned with lush moss on its exterior walls and courtyard, exuding a rich natural ambiance. Inside, the bright design and spacious windows allow sunlight to stream in freely, creating a relaxed and cheerful atmosphere. Every corner seems to speak of the beauty of nature, bringing a sense of tranquility and joy to all who enter.">
+    <meta name="keywords" content="hotel,moss,villa">
+    <meta name="author" content="CHANG ZHEN YUN">
+    <title>午間.溪流</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../img/favicon-03.png" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jquery -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- 動畫 -->
+    <link
+    rel="stylesheet"
+    href="../css/animate.css"
+  />
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body class="d-flex flex-column justify-content-center align-items-center">
+    <div class="cursor js-cursor"></div>
+    <!-- 最上面的所有物件 -->
+    <!-- container-fluid flex-grow-0 
+        flex-shrink-0  navbar fixed-top 
+        d-flex flex-wrap justify-content-center 
+        border-bottom bg-body-tertiary -->
+    <header>
+      <!-- AI自動對話機器人 -->
+      <div class="d-flex flex-column">
+        <div class="chatbot" onclick="toggleChatbot()"><img src="../img/機器人.gif" alt="" style="width: 100%;"></div>
+        <div class="chatbot-container">
+          <div class="chatbot-header">Need Moss Helps?:></div>
+          <div class="chatbot-messages" id="chatbotMessages"></div>
+          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="輸入您的訊息..." onkeydown="if(event.keyCode==13) sendMessage()">
+        </div>
+      </div>
+      <!-- AI自動對話機器人-end -->
+      <!-- 回到首頁 -->
+      <a href="#top" class="back-to-home">
+        <span class="top-text">Back to Top</span>
+        <div class="rain-lines-home"></div>
+      </a>
+      <!-- 回到首頁-2 -->
+
+            <!-- 優惠廣告 -->
+            <div id="adButton" class="d-none d-md-block d-xl-block"><i class="bi bi-ticket-perforated-fill"></i>優惠</div>
+            <div id="myAd" class="hidden">
+              <div id="myAdClose">&times;</div>
+              <div id="myAdConten">
+                <div class="adDate">2024/06/01 → 2024/06/31</div>
+                <div class="adText">
+                  <p >端午連假｜住房優惠。<br>現在下單!熱門房型八折優惠，享受山林最頂級配置。</p>
+                </div>
+                <a class="btn moreLink">more</a>
+              </div>
+            </div>
+            <!-- 優惠廣告-end -->
+
+      <!-- navbar -->
+      <nav class="navbar fixed-top d-flex flex-wrap  p-2 pe-5 justify-content-center px-3 bg-body-tertiary border-bottom">
+          <!-- 第一條navbar -->
+          <div class="漢堡icon">
+          <!-- 漢堡icon -->
+              <button onclick="toggleOffcanvas(this)" class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                  <span>
+                      <div class="container" style="display: inline-block;">
+                          <div class="bar1"></div>
+                          <div class="bar2"></div>
+                          <div class="bar3"></div>
+                      </div> 
+                  </span>
+              </button>
+          </div>
+          <!-- logo -->
+          <picture class="mx-auto"> 
+            <source media="(min-width:992px)" srcset="../img/LOGO-F-07.png"  class="img-fluid">
+            <source media="(min-width:768px)" srcset="../img/LOGO-F-08.png">
+            <img src="../img/LOGO-F-09.png" alt="Flowers" style="width:auto;">
+          </picture>
+          <!-- button_group: -->
+          <div class="button_group d-flex flex-wrap align-items-center align-items-center gap-2">
+            <button class="btn btn-circle w-2 btnLogin-popup"><i class="bi bi-person-circle"></i>login</button>
+            <button class="btn btn-circle w-2">
+               <!-- 購物車增加數字 -->
+               <div class="cart-number">
+                 <span class="cart-count">0</span>
+                 </div>
+                 <a href="./cart.html"><i class="bi bi-cart-fill"></i></a>
+
+            </button>
+        </div>
+          
+      </nav>
+      <!-- 文字播放廣告-end -->
+
+      <!-- 側邊列表 -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvaslightNavbarLabel">
+          <!-- 關閉列表，會讓搜索欄目被擋到，再思考__把index提前ok -->
+          <div class="sidenav-head d-flex justify-content-between mt-3 px-3">
+             <h5>關閉列表</h5>
+             <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <hr>
+          <div class="offcanvas-body">
+              <!-- 表格列表 -->
+              <div id="sidenav" class="col-12 d-flex flex-column">
+                <div class="row p-2 justify-content-between mx-2">
+                  <div class="col-6 text-center"><a href="../index.html"><i class="bi bi-house-fill px-2"></i>Moss首頁</a></div>
+                  <div class="col-6 text-center"><a href="../index.html#main2" ><i class="bi bi-aspect-ratio-fill px-2"></i>關於</a></div>
+                  <div class="col-6 text-center"><a href="../index.html#main3" ><i class="bi bi-backpack-fill px-2"></i>理念</a></div>
+                  <div class="col-6 text-center"><a href="../index.html#main4" ><i class="fas fa-utensils text-white px-2"></i>活動美食</a></div>
+                  <div class="col-6 text-center"><a href="../room.html" ><i class="fa-sharp fa-solid fa-bed px-2"></i>房間</a></div>
+                  <div class="col-6 text-center"><a href="../index.html#main6" ><i class="bi bi-compass-fill px-2"></i>交通指南</a></div>
+                  <div class="col-6 text-center"><a href="#main7" ><i class="fa-solid fa-circle-info px-2"></i>飯店詳情</a></div>
+                  <div class="col-6 text-center"><a href="#footer" ><i class="fa-solid fa-comments px-2"></i>聯絡我們</a></div>
+                </div>
+                <div class="row  p-1 mx-2">
+                  <div class="in-1 col-12 text-center"><a href="../room.html" ><i class="fa-sharp fa-solid fa-bed px-2"></i>現在訂房</a></div>
+                  <div class="in-1 col-12 text-center btnLogin-popup"  style="width: 100%;"><a href="#" ><i class="bi bi-people-fill px-2"></i>登入.查看訂單</a></div>
+                </div>
+            </div>
+        </div>
+          
+         <!-- 下拉列表 -->
+         <!-- 側邊選單，直列下拉列表 -->
+          <div class="d-flex navbar-nav" id="lang_money">
+              <div class="navbar-nav justify-content-center dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="lang" data-bs-toggle="dropdown" aria-expanded="false">
+                      中文 (Chinese)
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="lang"   style="width: 100%;">
+                      <li><a class="dropdown-item lang" href="#">英文 (English)</a></li>
+                      <li><a class="dropdown-item lang" href="#">中文 (Chinese)</a></li>
+                      <li><a class="dropdown-item lang" href="#">日文 (Japanese)</a></li>
+                  </ul>
+              </div>
+              <div class="navbar-nav justify-content-end dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="幣別" data-bs-toggle="dropdown" aria-expanded="false">
+                      NTD(台幣)
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="幣別"   style="width: 100%;">
+                      <li><a class="dropdown-item 幣別" href="#">NTD(台幣)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">CNY (人民幣)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">USD (美元)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">JPY (日元)</a></li>
+                  </ul>
+              </div>
+          </div>  
+          <hr>
+          <!-- 側邊列表-contact us    -->
+          <div class="row d-flex flex-wrap justify-content-between mx-4">
+             <button class="sidenav-cus-btn btn  col-3" ><a href=""><i class="bi bi-instagram"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi-facebook"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi-twitter-x"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi bi-youtube"></i></a></button>
+          </div>
+          <!-- 側邊選單的搜索 -->
+          <form class="d-flex my-3 mx-4" role="search">
+              <input class="form-control me-3" type="search" placeholder=" Search..." aria-label="Search" style="border-radius: 30px;">
+              <button class="btn px-3 py-2 w-2 btn-circle" type="submit" id="Search" style="border: 1px solid white;"><i class="bi bi-search"></i></button>
+          </form>
+      </div>
+    </header>
+
+        <!-- login-s -->
+<div id="login" class="wrapper">
+  <span class="icon-close"><i class="bi bi-x"></i></span>
+  <!-- login -->
+  <div class="form-box login">
+    <h2>login</h2>
+    <form action="get">
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-envelope-fill"></i></span>
+        <input type="email" required>
+        <label for="">Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-shield-lock-fill"></i></span>
+        <input type="password" minlength="6" required>
+        <label for="">Password</label>
+      </div>
+        <div class="remenber-forgot">
+          <label for="Remenber">
+            <input type="checkbox" name="記得密碼" id="Remenber">Remenber me
+          </label>
+          <a href="#">Forget Password?</a>
+        </div>
+        <button type="submit" class="btn login-btn">Login</button>
+        <div class="login-register">
+          <p>Dont't have a account?
+            <a href="#" class="register-link">Register</a></p>
+        </div>
+    </form>
+  </div>
+  <!-- register -->
+  <div class="form-box register">
+    <h2>Registration</h2>
+    <form action="#">
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-person-heart"></i></span>
+        <input type="text" required>
+        <label for="">Username</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-envelope-fill"></i></span>
+        <input type="email" required>
+        <label for="">Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-shield-lock-fill"></i></span>
+        <input type="password" minlength="6" required>
+        <label for="">Password</label>
+      </div>
+        <!-- 同意條約 -->
+        <div>
+          <div class="remenber-forgot register-勾勾">
+            <label for="conditions">
+              <input type="checkbox" name="條約" id="conditions">
+              I agree to the terms & conditions
+            </label>
+          </div>
+          <!-- 訂閱最新消息 -->
+          <div class="remenber-forgot register-勾勾">
+            <label for="order">
+              <input type="checkbox" name="訂閱" id="order">
+              訂閱最新消息
+            </label>
+          </div>
+          <button type="submit" class="btn login-btn">Register</button>
+          <div class="login-register">
+            <p>Already have a account?
+              <a href="#" class="login-link">Login</a></p>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+     <!-- login-e -->
+
+
+
+     <!-- 第三條-navbottom -->
+     <nav3 class="navbar fixed-bottom d-sm-block d-md-none">
+      <div class="container-fluid"  style="backdrop-filter: blur(5px);">
+          <div>
+              <a class="navbar-brand"  href="../room.html">一日最優惠價格</a>
+              <pre>今日特賣$17,000/日</pre>
+          </div>
+          
+          <a  href="../index.html#main5" class="btn btn-info me-4 booking animate__animated animate__heartBeat" type="button">Booking Now</a>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+          </div>
+      </div>
+    </nav3>
+  
+
+
+<!-- main-2 nav2-->
+<!-- 第二條 -->
+<nav2 class="sticky-top navbar navbar-expand-lg d-none d-sm-block" style="width: 100%;">
+  <div class="nav2 container-fluid d-flex">
+    <!-- timebox -->
+    <div class="d-flex justify-content-center align-items-center" id="navbarTimebox">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-brightness-low-fill"></i>
+        <span><small>23°C </small></span>
+      </div>
+      <div class="small_text">
+        <span>星期六</span>
+        <div class="navbar-time" id="navbarTime"></div>
+      </div>
+    </div>
+    <!-- timebox-end -->
+    <!-- nav中間選單 -->
+    <div class="nav-center nav navbar-collapse py-2">
+      <ul class="navbar-nav gap-3 mx-auto d-flex">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="../index.html">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#main2">關於</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#main3">理念</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#main4">活動美食</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../room.html">房間</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#main6">地點指南</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main7">飯店服務</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">聯絡我們</a>
+        </li>
+      </ul>
+    </div>
+    <!-- nav中間選單-end -->
+
+    <!-- nav2-button-group -->
+    <div class="d-flex align-items-center gap-2 justify-content-end">
+      <!-- booking -->
+      <a href="../index.html#main5" class="btn booking animate__animated animate__headShake" type="button">Booking Now</a>
+
+      <!-- search -->
+      <div class="search button_group d-flex flex-wrap">
+        <div class="collapse me-2" id="searchCollapse">
+          <form class="d-flex flex-wrap" role="search" onsubmit="return searchAndHighlight(event)">
+            <input class="form-control  d-xl-block" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+          </form>
+        </div>
+        <button class="btn w-2 btn-circle-light" type="button" data-bs-toggle="collapse" data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+    <!-- nav2-button-group-end -->
+  </div>
+</nav2>
+<!-- nav-2-end -->
+<!-- room-page-main1-start-->
+<main class="main-room-page1">
+    <div class="container">
+        <div class="row">
+          <!-- 返回上一頁 -->
+          <div><a href="../room.html"><i class="bi bi-arrow-return-left"></i>返回房間分頁</a></div>
+            <div class="col-md-7">
+              <!-- 圖片區 -->
+              <div id="room-images-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../img/room/room_jp_雙人床-1.png" alt="房間照片1" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/room/room_jp_雙人床-2.png" alt="房間照片2" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/room/room_jp_雙人床-3.png" alt="房間照片2" class="d-block w-100">
+                    </div>
+                </div>
+                <!-- 圖片上的按鈕區 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#room-images-carousel"
+                    data-bs-slide="prev">
+                    <i class="bi bi-arrow-left-circle-fill"></i>
+                    <span class="visually-hidden">上一張</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#room-images-carousel"
+                    data-bs-slide="next">
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                    <span class="visually-hidden">下一張</span>
+                </button>
+              </div>
+              <!-- 圖片下文字區-title -->
+              <div class="text-body d-flex justify-content-between my-2">
+                <h4 class="me-5">午間.溪流 半露天溫泉</h4>
+                <button class="btn btn-sm btn-circle-light" data-bs-toggle="modal"
+                    data-bs-target="#room-details-modal"><i class="bi bi-info-circle-fill" style="color: white;font-size: 0.8rem;"></i>詳細說明</button>
+              </div>
+              <div class="text-content-in pe-5 me-4">
+                <p>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，
+                  <br>洋溢著非日常感的講究的豪華套房。</p>
+              </div>
+            <div class="room-info">
+            <!-- surver-card1 -->
+              <div class="col">
+                <div class="room-info-card d-flex">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fas fa-users text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">1~6人</h5>
+                    </div>
+                  </div>
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fa-solid fa-expand text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">46-50㎡</h5>
+                    </div>
+                  </div>
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fa-solid fa-smoking text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">禁止吸菸</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card2 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-start">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fa-solid fa-bed text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">床數</h5>
+                      <p class="card-text map-links">→床1　180 x 201cm　 和室1</p>
+                      <p class="card-text map-links">→床2　180 x 201cm　 和室2</p>
+                      <p class="card-text map-links">→榻1　110 x 195cm　 交際廳</p>
+                      <p><small >*床是日式的被褥。</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card3 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fas fa-wifi text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">Wi-Fi</h5>
+                      <p class="card-text room-capacity">全客房提供免費Wi-Fi</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card4 -->
+              <div class="col">
+               <div class="room-info-card">
+                 <div class="card-body d-flex align-items-center">
+                   <div class="icon-bg rounded-circle">
+                     <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                   </div>
+                   <div class="ms-3">
+                     <h5 class="card-title">服務設施</h5>
+                     <p class="card-text room-count">加濕空氣淨化器、電視、熱飲電壺、冰箱、保險櫃、作務衣（日式服裝）、化妝水、毛巾、吹風機、衣架、沙發、泡湯籃、拖鞋</p>
+                   </div>
+                 </div>
+               </div>
+              </div>
+              <!-- surver-card5 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fas fa-bath text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">衛浴設備</h5>
+                      <p class="card-text map-links">浴缸、淋浴、洗手盆、免治馬桶</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card6 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fa-solid fa-baby text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">兒童同睡</h5>
+                      <p class="card-text room-capacity">與房間上限人數的同樣數量為上限，6歲以下兒童可以免費與成人同睡（不含餐以及床褥）。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card7 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="bi bi-person-wheelchair text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">無障礙設施</h5>
+                      <p class="card-text room-capacity">從櫃檯可乘電梯抵達。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- surver-card8 -->
+              <div class="col">
+                <div class="room-info-card">
+                  <div class="card-body d-flex align-items-center">
+                    <div class="icon-bg rounded-circle">
+                      <i class="fas fa-credit-card text-white"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h5 class="card-title">接受付款方式</h5>
+                      <p class="card-text room-capacity">現金、銀聯、Visa、Mastercard、American Express </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <!-- 卡片 -->
+            <div class="row left-carpart pt-3">
+                <div class="col-md-12">
+                    <div class="card-custom d-flex">
+                          <input class="form-check-input" type="checkbox" id="left-plan1">
+                          <div>
+                            <label class="form-check-label" for="left-plan1">
+                              <h5>一泊兩餐+品嘗苔味魅力的自助餐PLAN+</h5>
+                            </label>
+                            <p>含一泊兩餐（早晚自助餐）的住宿Plan。2016年4月新裝開業，可以品嘗到青森蘋果的全部魅力。</p>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div>
+                                <p>※成人1名1泊：TWD 10,188<br>
+                                  ※總額：TWD 40,188</p>
+                              </div>
+                              <p class="p-money"><a href="#restaurantModal" onclick="openModal('restaurantModal')">查看餐廳</a><i class="bi bi-arrow-right-circle"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-custom d-flex">
+                        <input class="form-check-input" type="checkbox" id="left-plan2">
+                        <div>
+                          <label class="form-check-label" for="left-plan2">
+                            <h5>一泊早餐+無需擔憂入住時間+</h5>
+                        </label>
+                        <p>含一泊早餐的住宿Plan 晚些入住也無需擔憂的住宿Plan，方便旅行和工作需要。早餐為您準備。</p>
+                        <hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <p>※成人1名1泊：TWD 10,188<br>
+                            ※總額：TWD 40,188</p>
+                          </div>
+                          <p class="p-money"><a href="#restaurantModal" onclick="openModal('restaurantModal')">查看餐廳</a><i class="bi bi-arrow-right-circle"></i></a></p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card-custom  d-flex">
+                        <input class="form-check-input" type="checkbox" id="left-plan3">
+                        <div>
+                          <label class="form-check-label" for="left-plan3">
+                            <h5>不含餐的住宿方案</h5>
+                        </label>
+                        <p>只住宿（不含餐）方案。希望追加用餐的情况下，住宿的預約完成。</p>
+                        <hr>
+                        <p >※不新增金額</p>
+                        </div>
+                    </div>
+                    <a href="./award.html">
+                      <div class="award m-5 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-award"></i>
+                        <div>
+                          <p class="h6">最佳價格保證</p>
+                          <p class="h6"><small>Best rate guaranteed</small></p>
+                        </div>
+                      </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+            <!-- 右邊列表 -->
+            <div class="right col-md-5">
+              <!-- 人數列表 -->
+              <div class="d-flex flex-wrap justify-content-between mb-3">
+                  <div>
+                      <label for="adults">成人人數</label>
+                      <select id="adults" class="form-select">
+                          <option value="1">1</option>
+                          <option value="2" selected>2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label for="children-under-12">12歲以下</label>
+                      <select id="children-under-12" class="form-select">
+                          <option value="0" selected>0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label for="children-under-6">6歲以下</label>
+                      <select id="children-under-6" class="form-select">
+                          <option value="0" selected>0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                      </select>
+                  </div>
+                  <div>
+                      <label for="children-under-3">3歲以下</label>
+                      <select id="children-under-3" class="form-select">
+                          <option value="0" selected>0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                      </select>
+                  </div>
+              </div>
+        <!-- 下拉資訊表-s -->
+        <div class="info-section mb-1">
+          <div class="info-header info-toggle px-3" data-target="#info-content-1">
+              <div>
+                <i class="bi bi-info-square-fill"></i> 關於兒童同睡
+              </div>
+              <div>
+                  <i class="fas fa-chevron-down"></i>
+              </div>
+          </div>
+          <div id="info-content-1" class="info-content">
+              與房間上限人數的同樣數量為上限，6歲以下兒童可以免費與成人同睡（不含餐以及床褥）。如有三歲以上六歲以下需要同睡的小童，請將人數登錄在"三歲以下"選項中。
+          </div>
+      </div>
+      <div class="info-section mb-1">
+          <div class="info-header info-toggle px-3" data-target="#info-content-2">
+              <div>
+                <i class="bi bi-info-square-fill"></i>關於兩間房以上的預約
+              </div>
+              <div>
+                  <i class="fas fa-chevron-down"></i>
+              </div>
+          </div>
+          <div id="info-content-2" class="info-content">
+              預約兩間房以上的貴賓，每個房間都請單獨預約。
+          </div>
+      </div>
+      <!-- 下拉資訊表-e -->
+
+      <!-- 月份選擇 -->
+      <div id="nnnnn" class="my-3">
+        <p>請在日曆上選擇入住和退房日期,顯示相應價格。</p>
+                    <!-- 日期選擇器 -->
+
+      </div>
+      <hr>
+      <div class="calendar-controls">
+          <button id="prev-month"><i class="bi bi-caret-left-fill"></i></button>
+          <span id="current-month"></span>
+          <button id="next-month"><i class="bi bi-caret-right-fill"></i></button>
+      </div>
+      <div class="calendar-wrapper">
+          <div class="ccccc">
+            <div class="c-title">
+              <span id="month1"></span>
+              <span id="year1"></span>
+            </div>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>日</th>
+                          <th>一</th>
+                          <th>二</th>
+                          <th>三</th>
+                          <th>四</th>
+                          <th>五</th>
+                          <th>六</th>
+                      </tr>
+                  </thead>
+                  <tbody id="calendar-body1"></tbody>
+              </table>
+          </div>
+          <div class="ccccc">
+            <div class="c-title">
+              <span id="month2"></span>
+              <span id="year2"></span>
+            </div>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>日</th>
+                          <th>一</th>
+                          <th>二</th>
+                          <th>三</th>
+                          <th>四</th>
+                          <th>五</th>
+                          <th>六</th>
+                      </tr>
+                  </thead>
+                  <tbody id="calendar-body2"></tbody>
+              </table>
+        </div>
+        <p>※上述價格為成人每位每晚的最低參考價格，此價格不含稅金。</p>
+        <div class="room-icon-group d-flex justify-content-around mx-3">
+          <span><i class="fas fa-circle"></i> 有空房</span>
+          <span><i class="fas fa-exclamation-triangle text-warning"></i> 剩很少</span>
+          <span><i class="fas fa-times-circle"></i>無空房</span>
+          <span><i class="fas fa-ban text-dark"></i>禁止預約</span>
+        </div>
+
+      </div>
+      <div>
+        <div class="d-flex justify-content-between w-100">
+          <button class="booking-menber menber btn btn-dark  my-1  btnLogin-popup" id="menber"  data-id="1"  data-name="午間.溪流 半露天溫泉" data-price="40376" data-description="可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。" data-image="../img/room/room_jp_雙人床-2.png"><a href="#"><i class="bi bi-person-check-fill"></i>會員立即預訂</a></button>
+          <button class="booking-menber menber btn  btn-dark  my-1 add-to-cart"  data-id="1"  data-name="午間.溪流 半露天溫泉" data-price="40376" data-description="可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。" id="notmenber" data-image="../img/room/room_jp_雙人床-2.png"><a  href="./cart.html"><i class="bi bi-person-fill-x"></i>非會員預訂</a></button>
+        </div>
+        <button class="booking-menber btn btn-dark
+         w-100 my-1  add-to-cart" id="addcart" 
+          data-id="1"  data-name="午間.溪流 半露天溫泉" data-price="40376" data-description="可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。" data-image="../img/room/room_jp_雙人床-2.png"><i class="bi bi-person-fill-x"></i>先加入購物車</button>
+      </div>
+            </div>
+        </div>
+
+      </div>
+    <!-- 房型詳細說明模態框 -->
+    <div class="modal fade" id="room-details-modal" tabindex="-1" aria-labelledby="room-details-modal-label"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="room-details-modal-label">午間.溪流 溫泉套房 詳細說明</h5>
+                </div>
+                <div class="modal-body">
+                    <!-- 房型詳細說明內容 -->
+                    <p>這是一個溫馨的雙人房,配有半露天溫泉,讓您在欣賞美景的同時享受泡湯的樂趣。<br>-<br>房間內設有兩張單人床或一張雙人床,提供免費Wi-Fi,禁止吸煙。<br>-<br>獨立衛浴配有浴缸、淋浴和盥洗用品。<br>-<br>退房時間為中午12:00前,我們接受銀聯、Visa、Mastercard和American Express付款。</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  aria-label="Close">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- room-page-main1-end-->
+<!-- 02房間-start -->
+<main class="room-wrapper">
+  <div class="category-filter">
+    <div class="container">
+      <div class="title text-container">
+        <div class="title-container  mt-3 pt-3 text-center">
+          <h1 class="pt-3">View more discounted rooms</h1>
+          <hr>
+        </div>
+      </div>
+      <!-- 點擊選單 -->
+      <div class="filter-btns d-none d-md-flex" id="filter-btns">
+        <button type="button" class="filter-btn active" onclick="filterSelection('all')" id="all">VIEW ALL</button>
+        <button type="button" class="filter-btn" onclick="filterSelection('guest')" id="guest">long weekend</button>
+        <button type="button" class="filter-btn" onclick="filterSelection('suite')" id="suite">Alumni price</button>
+        <button type="button" class="filter-btn" onclick="filterSelection('residential')" id="residential">Employee discount</button>
+        <button type="button" class="filter-btn" onclick="filterSelection('specialty')" id="specialty">Mother's Day </button>
+      </div>
+
+      <div class="dropdown d-md-none">
+        <button class="btn dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          選擇類別
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+          <li><buttin class="dropdown-item filter-btn active" onclick="filterSelection('all')" style="width: 80%;">VIEW ALL (15)</buttin></li>
+          <li><buttin class="dropdown-item filter-btn" onclick="filterSelection('guest')"  style="width: 80%;">GUEST ROOMS (4)</buttin></li>
+          <li><buttin class="dropdown-item filter-btn" onclick="filterSelection('suite')"  style="width: 80%;">SUITES (4)</buttin></li>
+          <li><buttin class="dropdown-item filter-btn" onclick="filterSelection('residential')"  style="width: 80%;">RESIDENTIAL SUITES (4)</buttin></li>
+          <li><buttin class="dropdown-item filter-btn" onclick="filterSelection('specialty')"  style="width: 80%;">SPECIALTY (3)</buttin></li>
+        </ul>
+      </div>
+      <!-- 卡片集合 -->
+      <div class="filter-items">
+        <!-- card1 -->
+        <div class="filter-item room-page-card guest">
+          <!-- 圖片 -->
+          <div class="filter-item-img">
+            <img src="../img/room/room_jp_雙人單床-1.png" alt="room_jp_雙人床-1">
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <!-- 愛心 -->
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>01春.萬物居</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間總數</h5>
+                  <h5 class="card-text">單人床*2</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜2位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">44㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room02-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+        
+<!-- Room Booking Modal -->
+<div class="modal fade room-booking-modal" id="roomBookingModal" tabindex="-1" aria-labelledby="roomBookingModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="roomBookingModalLabel">選擇入住時間和退房時間</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="checkInDate" class="form-label">入住日期</label>
+              <input type="date" class="form-control" id="checkInDate" required>
+            </div>
+            <div class="col-md-6">
+              <label for="checkOutDate" class="form-label">退房日期</label>
+              <input type="date" class="form-control" id="checkOutDate" required>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="adultCount" class="form-label">成人人數</label>
+              <input type="number" class="form-control" id="adultCount" min="1" value="1" required>
+            </div>
+            <div class="col-md-6">
+              <label for="childCount" class="form-label">兒童人數</label>
+              <input type="number" class="form-control" id="childCount" min="0" value="0" required>
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="breakfastOrder">
+            <label class="form-check-label" for="breakfastOrder">
+              是否增加早餐訂購
+            </label>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary add-to-cart"  data-bs-dismiss="modal" data-id="2" data-name="經濟房間" data-price="20000" data-description="簡約設計，經濟實惠，適合短期住宿。" data-image="../img/room/room_jpexp_雙人床-2.png">確認</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!-- card6 -->
+        <div class="filter-item suite">
+          <div class="filter-item-img">
+            <img src="../img/room/room_usnature_雙人床-1.png" 
+            alt="room_jp_雙人床-1" >
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>02晨曦</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間總數</h5>
+                  <h5 class="card-text">雙人床*1</h5>
+                  <h5 class="card-text">單人床*1</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜4位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">78㎡〜110㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room02-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- card5 -->
+        <div class="filter-item specialty">
+          <div class="filter-item-img">
+            <img src="../img/room/room_usexp_雙人床-1.png" 
+            alt="room_jp_雙人床-1" >
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>04森之境</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">獨棟別墅</h5>
+                  <h5 class="card-text">雙人床*2</h5>
+                  <h5 class="card-text">單人床*2</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜6位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">420㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room04-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- card7 -->
+        <div class="filter-item specialty">
+          <div class="filter-item-img">
+            <img src="../img/room/room_jp_雙人單床-2.png" 
+            alt="room_jp_雙人床-1" >
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>04泉之歌</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">獨棟別墅</h5>
+                  <h5 class="card-text">雙人床*2</h5>
+                  <h5 class="card-text">單人床*2</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜6位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">420㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room04-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- card9 -->
+        <div class="filter-item guest">
+          <div class="filter-item-img">
+            <img src="../img/room/room_8.png" 
+            alt="room_jp_雙人床-1" >
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>01夏.苔眠</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間總數</h5>
+                  <h5 class="card-text">雙人床*1</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜2位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">60㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room02-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- card12 -->
+        <div class="filter-item residential">
+          <div class="filter-item-img">
+            <img src="../img/room/room_jp_雙人床-3.webp" 
+            alt="room_jp_雙人床-1" >
+            <span class="discount old-price">
+              $20,000
+              <!-- <span class="new-price">$17,000</span> -->
+            </span>
+            <label class="love-icon">
+              <input type="checkbox">
+              <i class="bi bi-heart-fill"></i>
+            </label>
+          </div>
+          <!-- 卡片資訊 -->
+          <div class="item-info px-2">
+            <!-- 卡片標題  -->
+            <h6>03空翠居</h6>
+            <span class="line"></span>
+            <!-- 卡片文字  -->
+            <div  class="roomcard-text pt-2">
+              <span>可以盡享溪流景色的客房溫泉為首，使用了真正的苔蘚的壁畫等，洋溢著非日常感的講究的豪華套房。</span>
+            </div>
+            <!-- icongrounp  -->
+            <div class="d-flex icon-grounp py-3">
+              <!-- iconbody1  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間總數</h5>
+                  <h5 class="card-text">雙人床*1</h5>
+                  <h5 class="card-text">奢華臥榻*2</h5>
+                </div>
+              </div>
+              <!-- iconbody2  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-people-fill text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">人數</h5>
+                  <h5 class="card-text">1〜4位</h5>
+                </div>
+              </div>
+              <!-- iconbody3  -->
+              <div class="card-body d-flex align-items-center">
+                <!-- icon-圖片  -->
+                <div class="icon-bg rounded-circle">
+                  <i class="bi bi-fullscreen text-white"></i>
+                </div>
+                <!-- icon-文字  -->
+                <div class="ms-3">
+                  <h5 class="card-text">房間尺寸</h5>
+                  <h5 class="card-text">243㎡</h5>
+                </div>
+              </div>
+            </div>
+            <!-- 卡片按鈕  -->
+            <div class="d-flex flex-wrap justify-content-around">
+              <a href="./room04-page1.html" class="btn add-btn">查看詳情</a>
+              <a href="#" class="btn add-btn-light" data-bs-toggle="modal" data-bs-target="#roomBookingModal"><i class="bi bi-bag-plus-fill"></i>加入購物車</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</main>
+<button class="booking-menber btn btn-dark w-30 my-2 p-2"><a href="../room.html">查看更多房間</a></button>
+
+
+
+<script>
+//獲取所有加入購物車按鈕
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartCount = document.querySelector('.cart-count');
+
+//獲取購物車數量元素
+let countcart = JSON.parse(localStorage.getItem('cart'))?.length || 0;
+if (cartCount) {
+  cartCount.textContent = countcart;
+}
+
+//為每個購物車加入監聽器，在用foreach迴圈去抓
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const productId = button.getAttribute('data-id');
+        const productName = button.getAttribute('data-name');
+        const productPrice = button.getAttribute('data-price');
+        const productDescription = button.getAttribute('data-description');
+        const productImage = button.getAttribute('data-image');
+                // 獲取現有的購物車商品data
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // 增加新商品到購物車
+                cart.push({ id: productId, name: productName, price: productPrice, description: productDescription, image: productImage});
+
+                // 更新 LocalStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+      // 增加購物車數量
+      countcart++;
+      if (cartCount) {
+          cartCount.textContent = countcart;
+      }
+
+      alert(`${productName} 已加入購物車`);
+  });
+});
+//-----搜索功能(nav2、側邊)開始,目前還是失效--------
+//注意輸入01、02、03會讓畫面當機
+// 搜索功能封裝
+const searchModule = (() => {
+    let currentIndex = 0;
+    let matches = [];
+
+    function searchAndHighlight(event) {
+        event.preventDefault();
+        const query = document.getElementById('searchInput').value.trim();
+        if (!query) return false;
+
+        // Reset matches and currentIndex
+        matches = [];
+        currentIndex = 0;
+
+        // Remove previous highlights
+        document.querySelectorAll('.highlight').forEach(el => {
+            el.classList.remove('highlight');
+            el.style.backgroundColor = '';
+        });
+
+        // Find and highlight matches
+        const textNodes = getTextNodes(document.body);
+        textNodes.forEach(node => {
+            const regex = new RegExp(query, 'gi');
+            const match = node.nodeValue.match(regex);
+            if (match) {
+                const span = document.createElement('span');
+                span.className = 'highlight';
+                span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$&</span>');
+                node.parentNode.replaceChild(span, node);
+                matches.push(span.querySelector('.highlight'));
+            }
+        });
+
+        // Scroll to the first match
+        if (matches.length > 0) {
+            matches[currentIndex].style.backgroundColor = 'yellow';
+            matches[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Listen for next key press to jump to next match
+        document.addEventListener('keydown', handleKeyPress);
+
+        return false;
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter' && matches.length > 0) {
+            // Remove highlight from current match
+            matches[currentIndex].style.backgroundColor = '';
+
+            // Increment index and loop back if necessary
+            currentIndex = (currentIndex + 1) % matches.length;
+
+            // Highlight and scroll to the new match
+            matches[currentIndex].style.backgroundColor = 'yellow';
+            matches[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    function getTextNodes(node) {
+        let textNodes = [];
+        if (node.nodeType === Node.TEXT_NODE) {
+            textNodes.push(node);
+        } else {
+            for (let child of node.childNodes) {
+                textNodes = textNodes.concat(getTextNodes(child));
+            }
+        }
+        return textNodes;
+    }
+
+    return {
+        init: () => {
+            document.getElementById('searchForm').addEventListener('submit', searchAndHighlight);
+        }
+    };
+})();
+// //-----搜索功能(nav2、側邊)結束--------
+</script>
+<script>
+  //下拉資訊列表開始
+  document.querySelectorAll('.info-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+      const target = document.querySelector(this.getAttribute('data-target'));
+      const icon = this.querySelector('i.fas');
+  
+      if (target.style.display === 'none' || !target.style.display) {
+        target.style.display = 'block';
+        icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+      } else {
+        target.style.display = 'none';
+        icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+      }
+    });
+  });
+</script>
+<script>
+    const prevMonthBtn = document.getElementById('prev-month');
+    const nextMonthBtn = document.getElementById('next-month');
+    const currentMonthSpan = document.getElementById('current-month');
+    const calendarTable1 = document.getElementById('calendar-body1');
+    const calendarTable2 = document.getElementById('calendar-body2');
+    const priceInfo = document.getElementById('nnnnn');
+
+    let currentDate = new Date();
+    let selectedDates = [];
+    const statusIcons = {};
+
+    function generateRandomStatusIcons(month, year) {
+        const icons = {};
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(year, month, day).toISOString().split('T')[0];
+            icons[date] = getRandomStatusIcon();
+        }
+
+        return icons;
+    }
+//日立內容
+    function updateCalendar() {
+        const month1 = currentDate.getMonth();
+        const year1 = currentDate.getFullYear();
+        const month2 = (month1 + 1) % 12;
+        const year2 = month2 === 0 ? year1 + 1 : year1;
+
+        if (!statusIcons[`${year1}-${month1 + 1}`]) {
+            statusIcons[`${year1}-${month1 + 1}`] = generateRandomStatusIcons(month1, year1);
+        }
+        if (!statusIcons[`${year2}-${month2 + 1}`]) {
+            statusIcons[`${year2}-${month2 + 1}`] = generateRandomStatusIcons(month2, year2);
+        }
+        //月的title
+        currentMonthSpan.textContent = `${year1}年${month1 + 1}月-${month1 + 2}月`;
+        // document.getElementById('month-year1').textContent = `${month1 + 1}月 ${year1}年`;
+        // document.getElementById('month-year2').textContent = `${month2 + 1}月 ${year2}年`;
+        document.getElementById('month1').textContent = `${month1 + 1}月`;
+        document.getElementById('year1').textContent = `${year1}`;
+        document.getElementById('month2').textContent = `${month2 + 1}月`;
+        document.getElementById('year2').textContent = `${year2}`;
+
+//日立的內容物
+        calendarTable1.innerHTML = generateCalendarHTML(year1, month1, statusIcons[`${year1}-${month1 + 1}`]);
+        calendarTable2.innerHTML = generateCalendarHTML(year2, month2, statusIcons[`${year2}-${month2 + 1}`]);
+    }
+
+    function generateCalendarHTML(year, month, icons) {
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDay = new Date(year, month + 1, 0).getDate();
+        let calendarHTML = '';
+        let day = 1;
+
+        for (let i = 0; i < 6; i++) {
+            calendarHTML += '<tr>';
+
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDay) {
+                    calendarHTML += '<td></td>';
+                } else if (day > lastDay) {
+                    calendarHTML += '<td></td>';
+                } else {
+                    const date = new Date(year, month, day).toISOString().split('T')[0];
+                    const selected = selectedDates.includes(date) ? 'selected' : '';
+                    calendarHTML += `<td class="${selected}" data-date="${date}">${day} <br> ${icons[date]}</td>`;
+                    day++;
+                }
+            }
+
+            calendarHTML += '</tr>';
+        }
+
+        return calendarHTML;
+    }
+
+    function getRandomStatusIcon() {
+        const icons = [
+            '<i class="fas fa-circle"></i>',
+            '<i class="fas fa-circle"></i>',
+            '<i class="fas fa-exclamation-triangle text-warning"></i>',
+            '<i class="fas fa-exclamation-triangle text-warning"></i>',
+            '<i class="fas fa-times-circle"></i>',
+            '<i class="fas fa-ban text-dark"></i>'
+        ];
+        const randomIndex = Math.floor(Math.random() * icons.length);
+        return icons[randomIndex];
+    }
+
+    function selectDate(event) {
+        if (event.target.tagName === 'TD' && event.target.dataset.date) {
+            const date = event.target.dataset.date;
+            if (selectedDates.includes(date)) {
+                selectedDates = selectedDates.filter(d => d !== date);
+            } else {
+                selectedDates.push(date);
+            }
+            updateCalendar();
+            calculateTotalPrice();
+        }
+    }
+
+    function calculateTotalPrice() {
+        const totalDays = selectedDates.length;
+        let totalPrice = 0;
+
+        selectedDates.forEach(date => {
+            const day = new Date(date).getDay();
+            totalPrice += (day === 0 || day === 6) ? 25666 : 20188;
+        });
+
+        priceInfo.innerHTML = `<p id="checkin-date">選擇的日期: ${selectedDates.join(', ')}</p><p id="checkout-date">總計價格: TWD ${totalPrice}</p>`;
+}
+    prevMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        updateCalendar();
+    });
+
+    nextMonthBtn.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        updateCalendar();
+    });
+
+    calendarTable1.addEventListener('click', selectDate);
+    calendarTable2.addEventListener('click', selectDate);
+
+    updateCalendar();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- main-7-服務設備-start活動頁面 -->
+    <main id="main7" class="main7">
+      <!-- 手機板標題 -->
+      <div class="d-sm-block d-xl-none text-center justify-content-center h2" style="width: 100%;color:#333;">
+        <i class="bi bi-house-door-fill"></i>飯店服務
+      </div>
+      <!-- 電腦板標題 -->
+      <div class="sticky-top sticky-top-h2 d-none d-xl-block text-center h2" style="width: 20%;">
+        <i class="bi bi-house-door-fill"></i>飯店服務
+      </div>
+      <!-- 內容 -->
+      <!-- 這邊的d-flex要放 -->
+      <div class="d-flex justify-content-center text-center">
+        <!-- test -->
+        <!-- container刪掉就會設定在整張範圍 -->
+        <div class='container'>
+          <!-- row-cols-2控制最小尺寸時卡片有幾個 -->
+          <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3  g-3">
+            <!-- surver-card1 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">房間總數</h5>
+                    <p class="card-text room-count">187 間客房、2棟、72ha</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card2 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-map-marked-alt text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">地圖</h5>
+                    <p class="card-text map-links">→Floor Map →Oirase Keiryu Map</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card3 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-users text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">房間容量</h5>
+                    <p class="card-text room-capacity">1-5 位</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!-- surver-card4 -->
+<div class="col">
+  <div class="room-info-card">
+    <div class="card-body d-flex align-items-center">
+      <div class="icon-bg rounded-circle">
+        <i class="fas fa-utensils text-white"></i>
+      </div>
+      <div class="ms-3">
+        <h5 class="card-title">餐廳</h5>
+        <p class="card-text restaurant-count">3 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 餐廳模態框 -->
+<div id="restaurantModal" class="modal-4">
+  <div class="modal-content">
+    <!-- title -->
+    <div class="restaurant-modal-header py-3">
+      <h5 class="modal-title">餐廳詳情</h5>
+      <span class="close" onclick="closeModal('restaurantModal')">&times;</span>
+    </div>
+    <!-- restaurant-card-group -->
+    <div class="modal-content-card d-flex">
+      <!-- card1 -->
+      <div class="restaurant-item d-flex flex-wrap justify-content-center">
+        <img src="../img/food01.png" alt="" class=" restaurant-image">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">Moss morning</h6>
+          <p class="restaurant-hours">營業時間: 6:30 AM~10:00 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">早餐廳房</p>
+          <p class="restaurant-extra">（最後入場 9:30 AM）</p>
+        </div>
+      </div>
+      <!-- card2 -->
+      <div class="restaurant-item  d-flex flex-wrap justify-content-center">
+        <img src="../img/food02.png" alt="" class="img restaurant-image img-fluid">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">青森鳳梨廚房</h6>
+          <p class="restaurant-hours">營業時間: 10:30 PM~4:30 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">下午茶</p>
+          <p class="restaurant-extra">（最後入場 3:30 AM）</p>
+        </div>
+      </div>
+      <!-- card3 -->
+      <div class="restaurant-item  d-flex flex-wrap justify-content-center">
+        <img src="../img/food03.png" alt="" class="img restaurant-image img-fluid">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">漂流木餐廳</h6>
+          <p class="restaurant-hours">營業時間: 5:30 PM~9:30 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">晚餐</p>
+          <p class="restaurant-extra">（最後入場 8:30 AM）</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            <!-- surver-card5 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-spa text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">水療/按摩</h5>
+                    <p class="card-text spa-count">1 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card6 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-hot-tub text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">溫泉</h5>
+                    <p class="card-text onsen-count">1 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card7 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-door-open text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">入住/退房</h5>
+                    <p class="card-text checkin-time">入住: 3:00 PM / 12:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card8 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-wifi text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">Wi-Fi上網</h5>
+                    <p class="card-text wifi-info">所有區域均提供免費Wifi。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card9 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-child text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">兒童同住</h5>
+                    <p class="card-text children-info">最大六歲可以免費與成人同睡，有關房可容納人仕成人同樣數目的同睡兒童。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card10 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-paw text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">寵物</h5>
+                    <p class="card-text pet-info">允許</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card11 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-birthday-cake text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">紀念日、慶祝活動</h5>
+                    <p class="card-text celebration-info">→ 花束、蛋糕、葡萄酒（需要額外4日前預約）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card12 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-shuttle-van text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">接駁服務</h5>
+                    <p class="card-text shuttle-info">→ 有</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card13 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-parking text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">停車場</h5>
+                    <p class="card-text parking-info">戶外100台</p>
+                    <p class="card-subtext">※不需要預約</p>
+                    <p class="card-subtext">現場接待當日接受，先到先得</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card14 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-charging-station text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">充電站</h5>
+                    <p class="card-text charging-info">24小時可使用（收費）</p>
+                    <p class="card-subtext">CHAdeMO x 2, 200V/3.2kw x 1</p>
+                    <p class="card-subtext">→ 預約：入住預約後可申請<br>現場接待當日接受，先到先得</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card15 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-credit-card text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">線上付款</h5>
+                    <p class="card-text payment-info">Visa、Mastercard、美國運通卡、大來卡、JCB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card16 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-credit-card text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">到店付款</h5>
+                    <p class="card-text payment-info">現金、信用卡</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card17 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fa-solid fa-otter text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">服務設備</h5>
+                    <p class="card-text payment-info">
+                      <i class="fa-solid fa-o"></i>餐廳
+                      <i class="fa-solid fa-x"></i>咖啡廳/休息室
+                      <i class="fa-solid fa-o"></i>水療/按摩
+                      <br>
+                      <i class="fa-solid fa-x"></i>兒童遊樂區
+                      <i class="fa-solid fa-o"></i>戲水池
+                      <i class="fa-solid fa-x"></i>溫泉
+                      <br>
+                      <i class="fa-solid fa-o"></i>溫浴設施
+                      <i class="fa-solid fa-x"></i>會議室
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card18 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-spa text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">其他</h5>
+                    <p class="card-text spa-count">*宅配（住宿行李請註明住宿代表人姓名、預定入住日後再配送）</p>
+                    <p class="card-text spa-count">*全館禁煙</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+  <!-- test       -->
+      </div>
+    </main>
+
+  <footer id="footer">
+    <div class="row">
+      <div class="d-flex flex-column align-items-center justify-content-center mb-4">
+        <img src="../img/LOGO-F-08.png" class="logo" alt="logo">
+        <p class="text-center">The series of the poster presented how we build our dreams from scratch to reality.<br><br>It also shows that most things we see in the world is designed thoroughly by all kinds of designers.</p>
+      </div>
+      <div class="col">
+        <h3>FAQ <div class="underline"><span></span></div></h3>
+        <h6>訂購問題</h6>
+        <div class="social-icons d-flex justify-content-start">
+          <i class="bi bi-bag-check-fill"></i>
+          <i class="bi bi-bag-x-fill"></i>
+          <i class="bi bi-question-circle-fill"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-chat-dots-fill"></i>
+        </div>
+        <h6>Join Us</h6>
+        <small><a href="" >Team Information</a></small><br>
+        <small><a href="">Recruitment Information</a></small>
+      </div>
+      <div class="col">
+        <h3>contact us <div class="underline"><span></span></div></h3>
+        <p>礁溪經典渡假飯店-MOSSCOPE VILLA </p>
+        <p><i class="bi bi-geo-alt-fill"></i>宜蘭縣資策市礁溪鄉66段66號(02-1234-5678),Taiwan</p>
+        <p class="email-id"><i class="bi bi-envelope-fill"></i>mosscopevilla0604@gmail.com</p>
+        <h5><i class="bi bi-telephone-fill"></i>+05-2424-4242</h5>
+      </div>
+      <div class="col" >
+        <h3>Links<div class="underline"><span></span></div></h3>
+        <div class="d-flex gap-3">
+          <ul class="align-items-start">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#main2">About</a></li>
+            <li><a href="../index.html#main4">Active</a></li>
+            <li><a href="../index.html#main5">Room</a></li>
+          </ul>
+          <ul class="align-items-start">
+            <li><a href="../index.html#main3">belief</a></li>
+            <li><a href="../index.html#main6">Map</a></li>
+            <li><a href="#main7">Services</a></li>
+            <li><a href="#footer">Contact us</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="col">
+        <h3>獲得最新資訊<div class="underline"><span></span></div></h3>
+        <form action="get">
+          <i class="bi bi-envelope-at-fill"></i>
+          <input type="email" placeholder="aaa@gmail.com" required>
+          <button type="submit"><i class="bi bi-arrow-right"></i></button>
+        </form>
+        <div class="social-icons d-flex justify-content-between">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter-x"></i>
+          <i class="bi bi-line"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-youtube"></i>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="copyright text-center">©2024 MOSSCOPE Team</p>
+    
+  </footer>
+<!-- loading動畫-start -->
+<div id="loading-all" class="loading-overlay">
+  <div class="solar-system">
+    <div class="earth-orbit orbit">
+      <div class="planet earth"></div>
+      <div class="venus-orbit orbit">
+        <div class="planet venus"></div>
+        <div class="mercury-orbit orbit">
+          <div class="planet mercury"></div>
+          <div class="sun">
+            <img class="logo" src="../img/LOGO loading-10.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- loading動畫-end -->
+<script>
+  window.addEventListener('load', function () {
+  setTimeout(function () {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    if (loadingOverlay) {
+      loadingOverlay.remove();
+    }
+  }, 500);
+});
+</script>
+
+<!-- 給快速訂房-s-上色用 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<!-- 給快速訂房-e-上色用 -->
+<script src="../js/bootstrap.bundle.js"></script>
+<script src="../script-1.js"></script>
+
+</body>
+</html>

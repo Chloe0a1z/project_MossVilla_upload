@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="This moss-themed villa, akin to a hidden green gem, is adorned with lush moss on its exterior walls and courtyard, exuding a rich natural ambiance. Inside, the bright design and spacious windows allow sunlight to stream in freely, creating a relaxed and cheerful atmosphere. Every corner seems to speak of the beauty of nature, bringing a sense of tranquility and joy to all who enter.">
+    <meta name="keywords" content="hotel,moss,villa">
+    <meta name="author" content="CHANG ZHEN YUN">
+    <title>首頁</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./img/favicon-03.png" type="image/x-icon">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- jquery -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <!-- icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- 動畫 -->
+    <link
+    rel="stylesheet"
+    href="./css/animate.css"
+  />
+<!-- 自己的css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="loading d-flex flex-column justify-content-center align-items-center">
+    <!-- 最上面的所有物件 -->
+    <header>
+      <!-- 優惠廣告 -->
+      <div id="adButton" class="d-none d-md-block d-xl-block"><i class="bi bi-ticket-perforated-fill"></i>優惠</div>
+      <div id="myAd" class="hidden">
+        <div id="myAdClose">&times;</div>
+        <div id="myAdConten">
+          <div class="adDate">2024/06/01 → 2024/06/31</div>
+          <div class="adText">
+            <p >端午連假｜住房優惠。<br>現在下單!熱門房型八折優惠，享受山林最頂級配置。</p>
+          </div>
+          <a class="btn moreLink">more</a>
+        </div>
+      </div>
+      <!-- 優惠廣告-end -->
+
+      <!-- AI自動對話機器人 -->
+      <div class="d-flex flex-column">
+        <div class="chatbot" onclick="toggleChatbot()"><img src="./img/機器人.gif" alt="" style="width: 100%;"></div>
+        <div class="chatbot-container">
+          <div class="chatbot-header">Need Moss Helps?:></div>
+          <div class="chatbot-messages" id="chatbotMessages"></div>
+          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="輸入您的訊息..." onkeydown="if(event.keyCode==13) sendMessage()">
+        </div>
+      </div>
+      <!-- AI自動對話機器人-end -->
+      
+      <!-- 回到首頁 -->
+      <a href="#top" class="back-to-home">
+        <span class="top-text">Back to Top</span>
+        <div class="rain-lines-home"></div>
+      </a>
+      <!-- 回到首頁-2 -->
+
+      <!-- 查看優惠 -->
+      <!-- <a href="#" class="back-to-top animate__animated animate__bounce d-none d-md-block">
+        <div class="text-back">
+            <div class="泡泡"></div>
+            <span class=" text text-center">查看優惠<br>&#8593</span>
+        </div>
+      </a> -->
+      <!-- 查看優惠*-end --p-2 pe-5>
+
+      <!-- navbar -->
+      <nav class="navbar fixed-top d-flex flex-wrap p-2 pe-5 justify-content-between bg-body-tertiary border-bottom"  style="width: 100%;">
+          <!-- 第一條navbar -->
+          <div class="漢堡icon">
+          <!-- 漢堡icon -->
+              <button onclick="toggleOffcanvas(this)" class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                  <span>
+                      <div class="container" style="display: inline-block;">
+                          <div class="bar1"></div>
+                          <div class="bar2"></div>
+                          <div class="bar3"></div>
+                      </div> 
+                  </span>
+              </button>
+          </div>
+          <!-- logo -->
+          <picture > 
+            <source media="(min-width:992px)" srcset="./img/LOGO-F-07.png" class="img-fluid">
+            <source media="(min-width:768px)" srcset="./img/LOGO-F-08.png">
+            <img src="./img/LOGO-F-09.png"  alt="Flowers" style="width:auto;">
+          </picture>
+          <!-- button_group: -->
+          <div class="button_group d-flex flex-wrap align-items-center align-items-center gap-2">
+              <button class="btn btn-circle w-2 btnLogin-popup"><i class="bi bi-person-circle"></i>login</button>
+              <button class="btn btn-circle w-2">
+                <!-- 購物車增加數字 -->
+                <div class="cart-number">
+                  <span class="cart-count">0</span>
+                  </div>
+                  <a href="./room-desc/cart.html"><i class="bi bi-cart-fill"></i></a>
+ 
+             </button>
+          </div>
+      </nav>
+      <!-- 文字播放廣告 -->
+      <div>
+      <div style="height: 74px;width: 100vw;"></div>
+          <div class="container-fluid my-1">
+              <div class="scrolling-text-container">
+                  <div class="scrolling-text">
+                      <span class="scrolling-span" >NEW! </span> 
+                      We all see things in different perspective,
+                       what you see at the first sight is not how it really is.
+                        The letter in the poster is actually a combination of city,
+                         knowledge, maze and the door that can lead everyone to
+                          see the world.
+                          <span class="scrolling-span" >Special Offer!</span> You can get different surprises if you choose to take different roads.
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- 文字播放廣告-end -->
+
+      <!-- 側邊列表 -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvaslightNavbarLabel">
+          <!-- 關閉列表，會讓搜索欄目被擋到，再思考__把index提前ok -->
+          <div class="sidenav-head d-flex justify-content-between mt-3 px-3">
+             <h5>關閉列表</h5>
+             <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <hr>
+          <div class="offcanvas-body">
+              <!-- 表格列表 -->
+              <div id="sidenav" class="col-12 d-flex flex-column">
+                  <div class="row p-2 justify-content-between mx-2">
+                    <div class="col-6 text-center"><a href="#"><i class="bi bi-house-fill px-2"></i>Moss首頁</a></div>
+                    <div class="col-6 text-center"><a href="#main2" ><i class="bi bi-aspect-ratio-fill px-2"></i>關於</a></div>
+                    <div class="col-6 text-center"><a href="#main3" ><i class="bi bi-backpack-fill px-2"></i>理念</a></div>
+                    <div class="col-6 text-center"><a href="#main4" ><i class="fas fa-utensils text-white px-2"></i>活動美食</a></div>
+                    <div class="col-6 text-center"><a href="#main5" ><i class="fa-sharp fa-solid fa-bed px-2"></i>房間</a></div>
+                    <div class="col-6 text-center"><a href="#main6" ><i class="bi bi-compass-fill px-2"></i>交通指南</a></div>
+                    <div class="col-6 text-center"><a href="#main7" ><i class="fa-solid fa-circle-info px-2"></i>飯店服務</a></div>
+                    <div class="col-6 text-center"><a href="#footer" ><i class="fa-solid fa-comments px-2"></i>聯絡我們</a></div>
+                  </div>
+                  <div class="row my-2 p-2  mx-2">
+                    <div class="in-1 col-12 text-center"><a href="./room.html" ><i class="fa-sharp fa-solid fa-bed px-2"></i>現在訂房</a></div>
+                    <div class="in-1 col-12 text-center btnLogin-popup"><a href="#" ><i class="bi bi-people-fill px-2"></i>登入.查看訂單</a></div>
+                  </div>
+              </div>
+          </div>
+         <!-- 下拉列表 -->
+         <!-- 側邊選單，直列下拉列表 -->
+          <div class="d-flex navbar-nav" id="lang_money">
+              <div class="navbar-nav justify-content-center dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="lang" data-bs-toggle="dropdown" aria-expanded="false">
+                      中文 (Chinese)
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="lang"  style="width: 100%;">
+                      <li><a class="dropdown-item lang" href="#">英文 (English)</a></li>
+                      <li><a class="dropdown-item lang" href="#">中文 (Chinese)</a></li>
+                      <li><a class="dropdown-item lang" href="#">日文 (Japanese)</a></li>
+                  </ul>
+              </div>
+              <div class="navbar-nav justify-content-end dropdown" >
+                  <button class="btn dropdown-toggle" type="button" id="幣別" data-bs-toggle="dropdown" aria-expanded="false">
+                      NTD(台幣)
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="幣別"   style="width: 100%;">
+                      <li><a class="dropdown-item 幣別" href="#">NTD(台幣)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">CNY (人民幣)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">USD (美元)</a></li>
+                      <li><a class="dropdown-item 幣別" href="#">JPY (日元)</a></li>
+                  </ul>
+              </div>
+          </div>  
+          <hr>
+          <!-- 側邊列表-contact us    -->
+          <div class="row d-flex flex-wrap justify-content-between mx-4">
+             <button class="sidenav-cus-btn btn  col-3" ><a href=""><i class="bi bi-instagram"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi-facebook"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi-twitter-x"></i></a></button>
+             <button class="sidenav-cus-btn btn col-3"><a href=""><i class="bi bi bi-youtube"></i></a></button>
+          </div>
+          <!-- 側邊選單的搜索 -->
+          <form class="d-flex my-3 mx-4" role="search">
+              <input class="form-control me-3" type="search" placeholder="Search..." aria-label="Search" style="border-radius: 30px;">
+              <button class="btn px-3 py-2 w-2 btn-circle" type="submit" id="Search" style="border: 1px solid white;"><i class="bi bi-search"></i></button>
+          </form>
+      </div>
+    </header>
+
+        <!-- login-s -->
+<div id="login" class="wrapper">
+  <span class="icon-close"><i class="bi bi-x"></i></span>
+  <!-- login -->
+  <div class="form-box login">
+    <h2>login</h2>
+    <form action="get">
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-envelope-fill"></i></span>
+        <input type="email" required>
+        <label for="">Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-shield-lock-fill"></i></span>
+        <input type="password" minlength="6" required>
+        <label for="">Password</label>
+      </div>
+        <div class="remenber-forgot">
+          <label for="Remenber">
+            <input type="checkbox" name="記得密碼" id="Remenber">Remenber me
+          </label>
+          <a href="#">Forget Password?</a>
+        </div>
+        <button type="submit" class="btn login-btn">Login</button>
+        <div class="login-register">
+          <p>Dont't have a account?
+            <a href="#" class="register-link">Register</a></p>
+        </div>
+    </form>
+  </div>
+  <!-- register -->
+  <div class="form-box register">
+    <h2>Registration</h2>
+    <form action="#">
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-person-heart"></i></span>
+        <input type="text" required>
+        <label for="">Username</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-envelope-fill"></i></span>
+        <input type="email" required>
+        <label for="">Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><i class="bi bi-shield-lock-fill"></i></span>
+        <input type="password" minlength="6" required>
+        <label for="">Password</label>
+      </div>
+        <!-- 同意條約 -->
+        <div>
+          <div class="remenber-forgot register-勾勾">
+            <label for="conditions">
+              <input type="checkbox" name="條約" id="conditions">
+              I agree to the terms & conditions
+            </label>
+          </div>
+          <!-- 訂閱最新消息 -->
+          <div class="remenber-forgot register-勾勾">
+            <label for="order">
+              <input type="checkbox" name="訂閱" id="order">
+              訂閱最新消息
+            </label>
+          </div>
+          <button type="submit" class="btn login-btn">Register</button>
+          <div class="login-register">
+            <p>Already have a account?
+              <a href="#" class="login-link">Login</a></p>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+     <!-- login-e -->
+
+
+       <!-- banner -->
+       <div id="bannerCarousel" class="banner carousel">
+         <div class="banner-list">
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby3.png" alt="Moss Guesthouse">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Guesthouse</div>
+               <div class="topic">
+                 Moss Guesthouse
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description">
+                <p  style="color: white;">
+                  Experience the serene beauty of nature at Moss Guesthouse, where comfort meets tranquility. Nestled in lush surroundings, our guesthouse offers a unique retreat for relaxation and rejuvenation.
+                </p>
+               </div>
+               <div class="button">
+                 <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                 <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+               </div>
+             </div>
+           </div>
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby2.webp" alt="Moss Forest Activities">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Moss Forest Activities</div>
+               <div class="topic">
+                 Serenity Journey
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description">
+                <p  style="color: white;">
+                  Discover a range of activities in the moss-covered forests. From guided nature walks to adventurous hikes, immerse yourself in the vibrant ecosystem and explore the wonders of the natural world.
+                </p>
+               </div>
+               <div class="button">
+                <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+              </div>
+             </div>
+           </div>
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby1.webp" alt="Moss Restaurant">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Moss Restaurant</div>
+               <div class="topic">
+                 Drift-W
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description">
+                <p  style="color: white;">
+                  Indulge in exquisite dining at the Moss Restaurant, where fresh ingredients and culinary expertise combine to create unforgettable meals. Enjoy a feast for your senses in a setting that blends nature and gastronomy.
+                </p>
+               </div>
+               <div class="button">
+                <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+              </div>
+             </div>
+           </div>
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby4.png" alt="Moss Rooms">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Moss Rooms</div>
+               <div class="topic">
+                 Luxurious Comfort
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description">
+                <p  style="color: white;">
+                  Stay in our luxurious moss-themed rooms, designed to offer ultimate comfort and tranquility. Each room is a perfect blend of elegance and natural elements, providing a peaceful retreat for your stay.
+                </p>
+               </div>
+               <div class="button">
+                <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+              </div>
+             </div>
+           </div>
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby5.png" alt="Moss Guesthouse Facilities">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Facilities</div>
+               <div class="topic topic-small">
+                 Exclusive Amenities
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description" style="color: white;">
+                 Explore the exclusive facilities at Moss Guesthouse, including a serene spa, a well-equipped fitness center, and beautifully landscaped gardens. Our amenities are designed to enhance your stay and provide a luxurious experience.
+               </div>
+               <div class="button">
+                <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+              </div>
+             </div>
+           </div>
+           <div class="item">
+             <div class="overlay"></div>
+             <img src="./img/lobby6.png" alt="Classic Rooms">
+             <div class="content">
+               <img class="developer logo-white" src="./img/LOGO-F-11白色-07.png" style="width: 250px;" alt="">
+               <div class="title">Classic Rooms</div>
+               <div class="topic">
+                 Timeless Elegance
+                 <img class="title-moss" src="./img/苔-葉片-10.png" alt="">
+               </div>
+               <div class="developer social-icons d-flex justify-content-left gap-2">
+                 <i class="bi bi-facebook"></i>
+                 <i class="bi bi-twitter-x"></i>
+                 <i class="bi bi-line"></i>
+                 <i class="bi bi-instagram"></i>
+                 <i class="bi bi-youtube"></i>
+               </div>
+               <div class="description">
+                 Experience timeless elegance in our classic rooms, offering a perfect blend of traditional design and modern comfort. Each room is meticulously crafted to provide a memorable stay.
+               </div>
+               <div class="button">
+                <button><a href="#main2" class="seemore"><i class="bi bi-arrow-down-circle-fill"></i>SEE MORE</a></button>
+                <button><a href="./room.html" class="book"><i class="bi bi-plus-circle"></i>BOOKING</a></button>
+              </div>
+             </div>
+           </div>
+         </div>
+         <div class="banner-image-card d-flex">
+           <div class="item" onclick="showSpecificBannerSlide(0)">
+             <img src="./img/lobby3.png" alt="Moss Guesthouse">
+             <div class="content">
+               <div class="title">Moss Guesthouse</div>
+               <div class="description d-none">Moss Guesthouse</div>
+             </div>
+           </div>
+           <div class="item" onclick="showSpecificBannerSlide(1)">
+             <img src="./img/lobby2.webp" alt="Moss Forest Activities">
+             <div class="content">
+               <div class="title">Moss Activities</div>
+               <div class="description d-none">Moss Forest</div>
+             </div>
+           </div>
+           <div class="item" onclick="showSpecificBannerSlide(2)">
+             <img src="./img/lobby1.webp" alt="Moss Restaurant">
+             <div class="content">
+               <div class="title">Moss Restaurant</div>
+               <div class="description d-none">Drift-W Restaurant</div>
+             </div>
+           </div>
+           <div class="item" onclick="showSpecificBannerSlide(3)">
+             <img src="./img/lobby4.png" alt="Moss Rooms">
+             <div class="content">
+               <div class="title">Moss Rooms</div>
+               <div class="description d-none">Luxurious Comfort</div>
+             </div>
+           </div>
+           <div class="item" onclick="showSpecificBannerSlide(4)">
+             <img src="./img/lobby5.png" alt="Moss Guesthouse Facilities">
+             <div class="content">
+               <div class="title">Facilities</div>
+               <div class="description d-none">Exclusive Amenities</div>
+             </div>
+           </div>
+           <div class="item" onclick="showSpecificBannerSlide(5)">
+             <img src="./img/lobby6.png " alt="Classic Rooms">
+             <div class="content">
+               <div class="title">Classic Rooms</div>
+               <div class="description d-none">Timeless Elegance</div>
+             </div>
+           </div>
+         </div>
+         <div class="banner-arrow-button">
+           <button id="previous"><</button>
+           <button id="next">></button>
+         </div>
+         <div class="progress"></div>
+       </div>
+     <script>
+      (function () {
+  let nextButton = document.getElementById("next");
+  let previousButton = document.getElementById("previous");
+  let carouselContainer = document.getElementById("bannerCarousel");
+  let listItemContainer = document.querySelector("#bannerCarousel .banner-list");
+  let cardImageContainer = document.querySelector("#bannerCarousel .banner-image-card");
+
+  nextButton.onclick = function () {
+    showBannerSlider("Next");
+  };
+
+  previousButton.onclick = function () {
+    showBannerSlider("Previous");
+  };
+
+  let autoSlideNext = 5000;
+  let runTimeout;
+
+  let slideAutoNext = setTimeout(() => {
+    nextButton.click();
+  }, autoSlideNext);
+
+  function showBannerSlider(type) {
+    let itemSlider = document.querySelectorAll("#bannerCarousel .banner-list .item");
+    let itemImageCard = document.querySelectorAll("#bannerCarousel .banner-image-card .item");
+
+    if (type === "Next") {
+      listItemContainer.appendChild(itemSlider[0]);
+      cardImageContainer.appendChild(itemImageCard[0]);
+      carouselContainer.classList.add("nextSlide");
+    } else {
+      let lastItemPosition = itemSlider.length - 1;
+      listItemContainer.prepend(itemSlider[lastItemPosition]);
+      cardImageContainer.prepend(itemImageCard[lastItemPosition]);
+      carouselContainer.classList.add("previousSlide");
+    }
+
+    clearTimeout(runTimeout);
+    runTimeout = setTimeout(() => {
+      carouselContainer.classList.remove("nextSlide");
+      carouselContainer.classList.remove("previousSlide");
+    }, progressBarTime);
+
+    clearTimeout(slideAutoNext);
+    slideAutoNext = setTimeout(() => {
+      nextButton.click();
+    }, autoSlideNext);
+  }
+
+  function showSpecificBannerSlide(index) {
+    let itemSlider = document.querySelectorAll("#bannerCarousel .banner-list .item");
+    let itemImageCard = document.querySelectorAll("#bannerCarousel .banner-image-card .item");
+
+    while (index > 0) {
+      listItemContainer.appendChild(itemSlider[0]);
+      cardImageContainer.appendChild(itemImageCard[0]);
+      index--;
+    }
+
+    while (index < 0) {
+      let lastItemPosition = itemSlider.length - 1;
+      listItemContainer.prepend(itemSlider[lastItemPosition]);
+      cardImageContainer.prepend(itemImageCard[lastItemPosition]);
+      index++;
+    }
+
+    clearTimeout(runTimeout);
+    carouselContainer.classList.remove("nextSlide");
+    carouselContainer.classList.remove("previousSlide");
+  }
+})();
+
+     </script>
+     <!-- banner -->
+     <!-- 第三條-navbottom -->
+  <nav3 class="navbar fixed-bottom d-sm-block d-md-none">
+    <div class="container-fluid"  style="backdrop-filter: blur(5px);">
+        <div>
+            <a class="navbar-brand" href="./room.html">一日最優惠價格</a>
+            <pre>今日特賣$17,000/日</pre>
+        </div>
+        
+        <a href="#main5"  class="btn btn-info me-4 booking animate__animated animate__heartBeat" type="button">Booking Now</a>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        </div>
+    </div>
+  </nav3>
+
+  <!-- main-2 -->
+  <main id="main2" class="main2 container-fluid">
+  <div class="my-3"">
+    <div class="d-flex flex-md-row flex-column gap-5 align-items-center">
+        <div class="parallax"></div>
+        <div class="d-flex flex-column text-container text-center">
+            <div class="d-flex flex-column mt-3 justify-content-center align-items-center">
+                <h1>MosscopeVilla History</h1>
+                <h3 class="text-center">Under the mosscope, understanding lies in the details.</h3>
+                <hr>
+                <p class="text-center"><strong>MosscopeVilla(MossVilla)，台灣首家以苔蘚為主題的飯店</strong>，成立於2024年5月7日。旨在讓更多人了解並體驗苔蘚的奇妙與多功能性，提供一個完全環保且與自然和諧共處的綠色休息空間。
+                  <br>-<br>
+                  我們的旅館不僅是一個住宿場所，更是一個環保與自然完美融合的典範。從建築設計到日常運營，
+                  <strong>我們秉持著環保理念，致力於最小化對環境的影響，並積極推廣生態友好的生活方式。</strong> </p>
+                <a href="./room-desc/award.html" class="btn btn-none mosssign d-flex flex-column justify-content-center align-items-center" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50px" viewBox="0 0 46 28" fill="none">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M45.0161 22.3089C44.6136 21.8097 44.1136 21.9004 43.6202 22.1403C43.3708 22.2622 43.1345 22.4143 42.9005 22.5649C42.8481 22.5986 42.7959 22.6323 42.7436 22.6655C42.6091 22.7497 42.4758 22.8358 42.3426 22.9218C42.0451 23.1139 41.748 23.3057 41.4386 23.4759C41.101 23.6575 40.7374 23.8001 40.3348 23.7806C40.14 23.7742 39.9323 23.7093 39.8544 23.5213C39.7636 23.3134 39.9187 23.2238 40.0561 23.1445C40.0858 23.1273 40.1147 23.1107 40.14 23.0934C40.2892 22.9932 40.4452 22.9043 40.6005 22.8158C40.8168 22.6925 41.0316 22.5701 41.2243 22.4191C41.7503 22.0106 41.8022 21.5503 41.3996 21.09C40.975 20.6036 40.6164 20.9149 40.2892 21.199L40.2504 21.2326C39.8609 21.5763 39.4713 21.8875 38.9259 21.9523C38.2961 22.0236 37.9325 21.6087 38.1662 21.0122C38.3286 20.5972 38.6013 20.2277 38.8804 19.8776C39.4456 19.1683 40.0771 18.5229 40.7091 17.8771C41.1227 17.4544 41.5365 17.0315 41.932 16.5904C43.2696 15.0927 43.9253 13.3746 43.7695 11.3647C43.7046 10.5673 43.2696 10.0875 42.5748 10.0032C41.8604 9.91855 41.6823 10.4202 41.5089 10.9089C41.4963 10.9443 41.4838 10.9796 41.4711 11.0146C41.2276 11.664 40.9909 12.3147 40.7541 12.9656C40.4732 13.7378 40.1923 14.5103 39.8998 15.2808C39.6596 15.9162 39.3934 16.558 38.9259 17.0702C38.6532 17.3685 38.348 17.5889 37.913 17.4074C37.4975 17.2388 37.3417 16.9211 37.3481 16.4932C37.3481 16.4142 37.3492 16.3352 37.3503 16.2563V16.2539C37.3529 16.0554 37.3556 15.8576 37.3417 15.6633C37.2897 14.9371 36.582 14.3277 35.8483 14.3666C35.0497 14.412 34.6147 14.9371 34.6731 15.8059C34.6865 15.9981 34.7076 16.1903 34.7286 16.3826C34.7587 16.6571 34.7888 16.9318 34.7965 17.2064C34.8484 18.6263 34.1927 19.6507 32.985 20.3574C32.8876 20.5065 32.7578 20.5843 32.5824 20.5908C32.5565 20.6167 32.5305 20.6297 32.4916 20.6297C32.3877 20.7788 32.2383 20.8371 32.063 20.8436C32.0306 20.8696 31.9916 20.8825 31.9526 20.876C31.4722 21.1678 30.9463 21.3299 30.3944 21.4271C29.9437 21.5664 29.4915 21.698 29.0396 21.8294C28.1244 22.0956 27.2102 22.3615 26.3104 22.6914C25.8178 22.8683 25.8601 22.6174 25.9033 22.3609C25.925 22.232 25.947 22.1017 25.9014 22.0236L25.899 22.009C25.8932 21.9736 25.8868 21.9345 25.8754 21.9004C25.8711 21.8896 25.866 21.8788 25.861 21.868C25.8509 21.8464 25.8408 21.8248 25.8365 21.8032C25.8365 21.7928 25.8531 21.7824 25.8697 21.7721L25.8819 21.7643C25.8819 21.7142 25.8888 21.6663 25.8957 21.6181C25.9005 21.5852 25.9052 21.5521 25.9079 21.5179C25.9663 21.5114 26.0377 21.492 26.1286 21.4596C27.0287 21.1339 27.9434 20.8664 28.859 20.5986C29.3104 20.4666 29.7624 20.3344 30.2126 20.1953C30.3814 19.8387 30.6736 19.5988 30.9982 19.3978C31.0891 19.2227 31.2255 19.0931 31.4008 19.0088C31.4592 18.8208 31.5891 18.7041 31.7709 18.6327L31.9072 18.4966C32.0111 18.2632 32.1929 18.1011 32.3942 17.9585C32.4851 17.8236 32.578 17.6908 32.671 17.558C32.8105 17.3588 32.9499 17.1597 33.0824 16.9535C33.0951 16.9337 33.1084 16.9135 33.1221 16.8928C33.22 16.7441 33.3316 16.5747 33.3031 16.4154C33.3161 16.4057 33.3275 16.3992 33.3389 16.3927C33.3502 16.3862 33.3616 16.3797 33.3746 16.37C33.9239 15.9097 33.6197 15.2961 33.3577 14.7677L33.3356 14.7232C33.0304 14.1137 33.1733 13.6275 33.6538 13.1736L33.7365 13.0957C34.1767 12.6812 34.6166 12.267 34.9588 11.7667C35.264 11.3193 35.4003 10.8396 35.2964 10.3079C35.1731 9.64012 34.7575 9.45858 34.1862 9.80869C33.8906 9.98759 33.6537 10.2313 33.4179 10.4738C33.3119 10.5828 33.2061 10.6916 33.0954 10.7942C32.4656 11.3777 31.8228 11.9418 30.9787 12.2011C30.3359 12.3956 29.9009 12.2141 29.5958 11.6241C28.8881 10.2625 29.4335 8.92694 30.8943 8.45364C31.0465 8.40436 31.2065 8.37329 31.366 8.3423C31.4584 8.32436 31.5505 8.30646 31.641 8.28507L31.7205 8.26595C32.2587 8.13682 32.7927 8.00868 33.2382 7.66265C33.855 7.18936 34.0368 6.35298 33.6862 5.6398C33.433 5.12112 32.9331 4.9331 32.2643 5.10167C32.0161 5.16494 31.8281 5.31824 31.6408 5.47094C31.5978 5.50601 31.5548 5.54105 31.5111 5.57496L31.4929 5.58897C31.2189 5.79915 30.9256 6.02415 30.5827 5.81485C30.258 5.61534 30.2996 5.25395 30.3379 4.92094L30.3424 4.88123C30.3771 4.58849 30.4462 4.20806 30.52 3.80171C30.6537 3.06511 30.803 2.24333 30.7904 1.70431C30.7775 1.16618 30.3359 0.213104 29.7386 0.0315655C29.1608 -0.143489 28.466 0.440026 28.1674 1.03002C27.9907 1.37818 27.9905 2.21492 27.9903 2.85727C27.9902 3.11194 27.9901 3.33634 27.9791 3.48727C27.9628 3.69682 27.9468 3.9064 27.9307 4.11601L27.9305 4.1182C27.748 6.50198 27.5653 8.88768 27.0701 11.2351C26.8298 12.3826 26.4922 13.4978 25.791 14.4703C25.791 14.5425 25.7854 14.6147 25.7794 14.6921L25.778 14.7102C25.33 15.8189 24.7586 16.8563 23.96 17.751C23.4341 18.341 23.0575 18.2502 22.7654 17.5176C22.7349 17.4392 22.7278 17.3551 22.7205 17.269C22.7169 17.2268 22.7133 17.1841 22.7069 17.1415C22.681 16.9146 22.6615 16.6877 22.655 16.4673C22.9342 17.0183 23.2913 17.0443 23.7653 16.5126C24.5639 15.6179 25.1352 14.5806 25.5832 13.4719C25.5471 13.4499 25.5204 13.4287 25.5028 13.408C25.5196 13.4247 25.5421 13.4416 25.5703 13.4588C25.5764 13.3861 25.5824 13.3078 25.5832 13.2291L25.5897 13.2255C25.5932 13.1699 25.5948 13.1134 25.5964 13.0566C25.6009 12.9014 25.6054 12.7437 25.6482 12.5966C25.9079 11.6046 26.1351 10.6191 26.1221 9.57528C26.1091 7.52001 25.8235 5.49716 25.3105 3.51321C25.1093 2.73519 24.869 1.95068 24.2912 1.33475C24.1094 1.14025 23.9081 0.939257 23.6289 1.06893C23.3367 1.1986 23.2783 1.48387 23.3432 1.77563C23.3715 1.91378 23.3991 2.05228 23.4267 2.19088C23.5196 2.65719 23.6127 3.12471 23.7328 3.58453C23.9665 4.47277 24.1353 5.37397 24.2717 6.27518C24.3171 6.59287 24.2912 6.95595 23.9925 7.13749C23.7133 7.30606 23.4081 7.17639 23.1549 6.98837C22.8822 6.78738 22.616 6.57342 22.3628 6.3465C21.6159 5.68227 21.0812 4.85747 20.5462 4.03242C20.1883 3.48037 19.8303 2.92821 19.4086 2.42398C18.8307 1.73673 18.2399 1.05596 17.4218 0.641015C17.1361 0.498378 16.7466 0.375191 16.5388 0.653981C16.3741 0.874998 16.5644 1.05119 16.7377 1.21164C16.783 1.25357 16.8271 1.29445 16.8634 1.33475C17.0007 1.49318 17.1452 1.64731 17.2894 1.80118C17.4521 1.97476 17.6145 2.14801 17.7659 2.32673C17.9088 2.4953 17.9737 2.71574 17.8633 2.92321C17.7644 3.1149 17.5769 3.09842 17.4082 3.08358C17.3886 3.08186 17.3693 3.08016 17.3504 3.07881C17.149 3.06205 16.9524 3.0164 16.7564 2.97091L16.6622 2.94914C16.5424 2.92101 16.4235 2.88949 16.3046 2.85795C16.0946 2.80225 15.8843 2.74651 15.6688 2.70925C15.4155 2.67035 15.1299 2.6509 15.0649 3.00749C15.013 3.29925 15.1299 3.50672 15.422 3.59749C15.5149 3.624 15.6057 3.65701 15.696 3.68988C15.8267 3.7374 15.9565 3.78462 16.0908 3.81145C18.8113 4.40145 20.8565 6.04178 22.655 8.0387C22.7312 8.12236 22.8115 8.20404 22.8923 8.28611C23.2247 8.62381 23.5635 8.96815 23.6419 9.48452C23.7263 9.60122 23.8107 9.71792 23.7977 9.87353C23.8107 9.91243 23.8107 9.94485 23.8107 9.98375C23.8367 10.0291 23.8626 10.081 23.8821 10.1264C24.1159 12.0779 23.7912 13.9192 22.7784 15.6179C22.7714 15.6291 22.7644 15.6406 22.7573 15.6521C22.7316 15.6943 22.705 15.7379 22.6745 15.7735C22.7394 14.6908 23.0446 13.6534 23.5185 12.642C23.5251 12.6288 23.5317 12.6161 23.5382 12.6035C23.5573 12.5667 23.5754 12.5315 23.5899 12.4929C23.6094 12.4313 23.6273 12.3681 23.6451 12.3048C23.663 12.2416 23.6808 12.1784 23.7003 12.1168C23.7003 12.1082 23.6996 12.0995 23.6989 12.0909C23.6974 12.0736 23.696 12.0563 23.7003 12.039C23.7003 12.0291 23.7155 12.023 23.7284 12.0178C23.7324 12.0161 23.7362 12.0146 23.7393 12.0131C23.7393 11.8134 23.7335 11.6108 23.7277 11.4092C23.7248 11.3098 23.7219 11.2103 23.7198 11.1119C23.6459 11.0299 23.5721 10.9454 23.4998 10.8599C23.5115 10.8354 23.5187 10.8099 23.5187 10.7809L23.5252 10.7744C23.5222 10.776 23.5184 10.7775 23.5143 10.7791C23.5013 10.7844 23.4861 10.7905 23.4861 10.8005C23.4832 10.8148 23.4828 10.8279 23.4834 10.8403C23.4469 10.797 23.411 10.7534 23.3757 10.7099L23.2199 10.5932C22.9212 10.5154 22.6225 10.5024 22.3239 10.5867C22.2752 10.6288 22.2282 10.6709 22.1812 10.713C22.1341 10.7551 22.0869 10.7974 22.0382 10.8396L21.5512 11.6176C21.5317 11.7084 21.5123 11.7926 21.4928 11.8769C21.483 11.8996 21.4733 11.9239 21.4636 11.9482C21.4538 11.9726 21.4441 11.9969 21.4343 12.0196C21.4256 12.0547 21.4181 12.0898 21.4107 12.1244C21.4018 12.1662 21.3931 12.2074 21.3824 12.2465C21.3954 12.454 21.311 12.6225 21.1681 12.7652C21.1552 12.8041 21.1422 12.8495 21.1357 12.8884C21.0058 13.232 20.8565 13.5562 20.3955 13.5173C20.3533 13.5173 20.3127 13.514 20.2721 13.5108C20.2316 13.5075 20.191 13.5043 20.1488 13.5043C19.8891 13.5173 19.7332 13.3746 19.6229 13.1607C19.4216 13.044 19.2852 12.8819 19.2658 12.6355C18.6879 10.872 17.5322 9.5299 16.1038 8.39529C15.7661 8.12946 15.4155 7.88957 14.987 7.7988C14.3248 7.65617 13.9612 7.95441 13.9676 8.62869C13.9676 9.06957 14.1365 9.45858 14.3118 9.84759C14.8312 11.0017 15.5324 12.0455 16.2921 13.0504C17.4608 14.5935 18.5256 16.2014 19.2658 18.0038C19.6553 18.2048 19.7332 18.5614 19.7917 19.0412C19.4281 18.8078 19.1943 18.5744 19.019 18.2697C19.0041 18.2548 18.9885 18.2399 18.9726 18.2248C18.9402 18.1938 18.9067 18.1618 18.8762 18.127C18.4996 17.8612 18.1815 17.537 17.9412 17.1415C17.7822 16.9536 17.6248 16.7672 17.4674 16.5808C17.3101 16.3946 17.1522 16.2077 16.9933 16.0199C16.2791 15.1835 15.4285 14.7037 14.2923 15.0085C13.9222 15.1057 13.4937 15.2289 13.4287 15.6698C13.3682 16.0509 13.675 16.2683 13.959 16.4695L14.0196 16.5126C14.1125 16.5793 14.2073 16.6434 14.3021 16.7074C14.6312 16.9298 14.9593 17.1515 15.2013 17.4787C15.5843 17.9974 15.448 18.3475 14.8182 18.4836C14.513 18.5485 14.2144 18.516 13.9222 18.4707C13.724 18.2988 13.4536 18.1123 13.2186 17.9502C12.8684 17.7088 12.5968 17.5215 12.76 17.5176C12.8321 17.5176 12.7715 17.4631 12.6885 17.3886C12.5773 17.2887 12.4259 17.1528 12.5003 17.0637C11.3511 15.6568 10.8057 13.9776 10.3057 12.2724C9.97459 11.1443 9.64346 10.0162 9.04612 8.99825C8.85783 8.67408 8.6111 8.35639 8.18258 8.48606C7.72159 8.62221 7.59823 9.02419 7.64368 9.45858C7.68913 9.90594 7.81249 10.3339 8.00078 10.7488L8.16665 11.1257C8.46327 11.7992 8.76162 12.4767 9.04612 13.1542L9.0626 13.1934C9.13855 13.3731 9.22664 13.5816 9.03314 13.7507C8.82537 13.9322 8.58513 13.8674 8.37087 13.7571C8.12415 13.6275 7.87742 13.4913 7.66965 13.3098C7.26123 12.9661 6.85942 12.6137 6.4578 12.2614C6.16988 12.0089 5.88205 11.7564 5.59196 11.5074C5.46006 11.3933 5.32986 11.2773 5.1997 11.1612C4.7084 10.7233 4.21766 10.2859 3.63763 9.95781L3.60057 9.93644C3.35144 9.79243 3.08519 9.63853 2.81305 9.86704C2.54685 10.0875 2.46244 10.3922 2.54036 10.7358C2.61178 11.0535 2.74163 11.3453 2.91694 11.6111C3.2156 12.052 3.55972 12.4669 3.96227 12.8235C4.44469 13.2531 4.93249 13.6767 5.42004 14.1C6.44827 14.9929 7.47542 15.8847 8.44879 16.8303C9.46166 17.8093 10.5135 18.717 11.6822 19.4691C11.7666 19.5793 11.877 19.6701 12.0523 19.7155C12.0609 19.7176 12.0695 19.7191 12.0782 19.7205C12.0955 19.7234 12.1129 19.7263 12.1302 19.7349C12.4289 19.9165 12.7275 20.0915 13.0457 20.2536L13.0539 20.2578C13.2662 20.367 13.507 20.4908 13.5326 20.7853C13.5435 20.7939 13.5536 20.8054 13.5637 20.817C13.5839 20.84 13.6041 20.8631 13.63 20.8631C14.8507 20.9603 16.0583 20.8955 17.2725 20.7593C17.3764 20.8047 17.4802 20.8501 17.5841 20.9085C17.8893 21.0641 18.2009 21.2261 18.2529 21.6216C18.1815 21.8875 17.9218 21.9393 17.7335 21.9653C16.4349 22.1209 15.1363 22.2052 13.8248 22.0949C13.8032 22.0949 13.7815 22.0719 13.7599 22.0488C13.7491 22.0373 13.7382 22.0258 13.7274 22.0171C11.6043 22.0755 9.57204 21.5568 7.55278 20.9992C6.67191 20.7552 5.79385 20.5028 4.91598 20.2505C3.90466 19.9598 2.89286 19.6689 1.87809 19.3913C1.39763 19.2552 0.897682 19.2681 0.443187 19.5339C-0.141163 19.8841 -0.147656 20.3703 0.423709 20.7269C0.845739 20.9863 1.31971 21.1224 1.79369 21.2521C2.4105 21.4206 3.02731 21.6022 3.63763 21.7902C3.79995 21.8421 3.96227 21.9393 3.9363 22.1533C3.91682 22.3219 3.79346 22.4126 3.65062 22.471C3.5305 22.5196 3.40876 22.5601 3.28702 22.6006C3.16531 22.6412 3.04352 22.6817 2.92343 22.7303C2.56633 22.873 2.26766 23.0804 2.26117 23.5019C2.26117 23.8973 2.55983 24.1048 2.87149 24.2604C3.61816 24.63 4.36483 24.6235 5.05955 24.1437C5.29892 23.9799 5.52013 23.789 5.74178 23.5976C5.84478 23.5087 5.94789 23.4197 6.05295 23.3333C7.06582 22.5164 8.17609 22.445 9.26038 23.1323C9.28421 23.1475 9.30843 23.1628 9.33283 23.1782C9.64089 23.3724 9.97918 23.5856 9.95511 23.9881C9.93035 24.4209 9.54545 24.6119 9.1945 24.7862L9.14351 24.8115C8.51923 25.1181 7.84655 25.2757 7.17315 25.4334C6.99211 25.4759 6.81102 25.5183 6.63081 25.5636C6.56857 25.5794 6.50022 25.5931 6.42978 25.6071C6.09618 25.6737 5.71532 25.7498 5.71532 26.1082C5.71532 26.5954 6.23362 26.7336 6.66054 26.8474L6.70872 26.8603C6.82462 26.8927 6.94715 26.8921 7.07157 26.8914C7.12135 26.8911 7.17157 26.8909 7.22165 26.8927C7.83556 26.9262 8.42549 26.7824 9.01617 26.6384L9.01727 26.6381C9.11325 26.6147 9.2097 26.5912 9.30583 26.5686C9.97459 26.4065 10.5719 26.4389 11.0784 26.977C11.2796 27.191 11.5329 27.366 11.8315 27.4503C12.5198 27.6513 12.8639 27.3984 12.8379 26.6788C12.8265 26.4172 12.7852 26.1557 12.7445 25.8986L12.7275 25.7905C12.6107 24.9736 12.8184 24.5327 13.6041 24.3253C15.6688 23.7806 17.7464 23.5861 19.7657 24.4809C22.1486 25.5377 24.5833 25.6933 27.109 25.1227L27.2634 25.0879C28.2762 24.8594 29.2849 24.6318 30.323 24.5392C32.4282 24.3525 34.427 24.8541 36.4339 25.3578C36.5871 25.3962 36.7403 25.4347 36.8937 25.4728C39.0752 26.011 41.2568 26.0823 43.354 25.0709C43.9708 24.7726 44.5811 24.4549 45.0161 23.9038C45.4057 23.4176 45.4187 22.7498 45.0551 22.3024L45.0161 22.3089ZM28.5699 15.78C29.3036 15.0927 29.9074 15.002 30.7839 15.4558C30.9617 15.5462 31.1325 15.6488 31.3026 15.7509C31.4619 15.8465 31.6206 15.9417 31.7838 16.0264C31.8759 16.0754 31.9694 16.1331 32.0637 16.1913C32.1688 16.2562 32.2751 16.3218 32.3812 16.3765C32.2743 16.4412 32.172 16.5105 32.0689 16.5803C31.9965 16.6292 31.9237 16.6785 31.8488 16.7266C31.6479 16.8575 31.4475 16.9897 31.2468 17.1221C30.6821 17.4947 30.1153 17.8686 29.5308 18.2178L29.4992 18.2366L29.4545 18.2638C29.2122 18.4113 28.9115 18.5945 28.6478 18.3604C28.3934 18.1373 28.483 17.7898 28.5595 17.4934L28.5699 17.4527C28.6175 17.2628 28.6743 17.0744 28.7314 16.8852C28.7911 16.6872 28.8512 16.4879 28.901 16.2857C28.9335 16.1431 28.9205 15.9745 28.7257 15.9226C28.5634 15.8837 28.4141 15.9226 28.3427 16.0718C28.2583 16.2403 28.1868 16.4219 28.1544 16.6099C28.11 16.8578 28.0725 17.107 28.0348 17.3564C27.9899 17.6546 27.9447 17.9538 27.8882 18.2502C27.622 19.5793 26.9467 20.4287 25.9858 20.7075C26.278 18.8078 27.1025 17.148 28.5699 15.78Z" fill="#040000"/>
+                     <path d="M23.8568 10.1337C23.8306 10.0881 23.8045 10.0359 23.7849 9.99023C23.811 10.0359 23.8372 10.0881 23.8568 10.1337Z" fill="#040000"/>
+                  </svg>
+                  <small>Discover moss.Discover our.</small>
+              </a>
+              </div>
+            <p></p>
+            <p></p>
+
+        </div>
+    </div>
+  </div>
+  </main>
+
+<!-- main-2 nav2-->
+<!-- 第二條 -->
+<!-- nav-2-end -->
+<nav2 class="sticky-top navbar navbar-expand-lg d-none d-sm-block" style="width: 100%;">
+  <div class="nav2 container-fluid d-flex">
+    <!-- timebox -->
+    <div class="d-flex justify-content-center align-items-center" id="navbarTimebox">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-brightness-low-fill"></i>
+        <span><small>23°C </small></span>
+      </div>
+      <div class="small_text">
+        <span>星期六</span>
+        <div class="navbar-time" id="navbarTime"></div>
+      </div>
+    </div>
+    <!-- timebox-end -->
+
+    <!-- nav中間選單 -->
+    <div class="nav-center nav navbar-collapse py-2">
+      <ul class="navbar-nav gap-3 mx-auto d-flex">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main2">關於</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main3">理念</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main4">活動美食</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main5">房間</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main6">地點指南</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main7">飯店服務</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">聯絡我們</a>
+        </li>
+      </ul>
+    </div>
+    <!-- nav中間選單-end -->
+
+    <!-- nav2-button-group -->
+    <div class="d-flex align-items-center gap-2 justify-content-end">
+      <!-- booking -->
+      <a href="#main5" class="btn booking animate__animated animate__headShake" type="button">Booking Now</a>
+
+      <!-- search -->
+      <div class="search button_group d-flex flex-wrap">
+        <div class="collapse me-2" id="searchCollapse">
+          <form class="d-flex flex-wrap" role="search" onsubmit="return searchAndHighlight(event)">
+            <input class="form-control  d-xl-block" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+          </form>
+        </div>
+        <button class="btn w-2 btn-circle-light" type="button" data-bs-toggle="collapse" data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
+    <!-- nav2-button-group-end -->
+  </div>
+</nav2>
+<!-- nav-2-end -->
+
+
+<!-- main-3 環保理念 -->
+<main id="main3" class="main3">
+    <div class="d-flex flex-column mt-5">
+        <h2 class="text-center"><i class="bi bi-award-fill"></i>MossVilla-我們的環保理念</h2>
+        <div class="container-main" >
+            <div class="drop" style="--clr:#4D7058;">
+                <div class="content">
+                    <h2>01</h2>
+                    <p style="color:#4D7058;font-weight: bold;">台灣苔蘚世界居冠,受重視程度成反比。</p>
+                    <small>日本、國際大力投入苔蘚 台灣研究人力極端不足，
+                        普羅民眾普遍對苔蘚認識不高，苔蘚邊緣化</small>
+                    <a href="">read more</a>
+                </div>
+            </div>
+            <div class="drop" style="--clr:#D8BA48;">
+                <div class="content">
+                    <h2>02</h2>
+                    <p style="color:#4D7058;font-weight: bold;">台灣苔蘚密度世界最高 國際高度重視</p>
+                    <small>全世界約有2萬3000種苔蘚，台灣記載的苔蘚多達1500種，國際認定的稀有種多達300+，特有種則有150種，密度比中國、日本、北美、英國都還高，堪稱世界之最。 </small>
+                    <a href="">read more</a>
+                </div>
+            </div>
+            <div class="drop" style="--clr:#29B286;">
+                <div class="content">
+                    <h2>03</h2>
+                    <p style="color:#4D7058;font-weight: bold;">苔蘚的生態修復價值不容小覷</p>
+                    <small>苔蘚葉片的強靜電吸附能力和共生在苔蘚表面的微生物吞噬粉塵能力，具有吸收和消化汽車廢氣煙霧的功能。<br><br>
+                        具有空氣清潔、加濕、隔音降噪功能 </small>
+                    <a href="">read more</a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="moss-img-1 d-none d-xl-block"><img src="./img/苔-01-02-03.png" alt=""></div>
+        <div class="moss-img-2"><img src="./img/苔-01-02.png" alt=""></div>
+    </div>
+    
+</main>
+<!-- 這是標題，標題要加sticky-top sticky-top-h2 -->
+<main id="main4"  class="main4 d-flex flex-column flex-wrap">
+  <!-- 手機板標題 -->
+  <div class="d-sm-block d-xl-none text-center justify-content-center h2" style="width: 100%;">
+    <i class="bi bi-bookmarks-fill"></i>活動頁面
+  </div>
+  <!-- 電腦板標題 -->
+    <div class="sticky-top sticky-top-h2 d-none d-xl-block text-center h2" style="width: 20%;">
+      <i class="bi bi-bookmarks-fill"></i></i>活動頁面
+    </div>
+    <!-- 圖片播放 -->
+    <div class="圖片播放">
+        <div class="container-活動輪播 d-flex flex-column  ms-auto">
+            <ul class="active-img輪播">
+                <!-- 第一張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/active01.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal1" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第二張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/active02.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal2" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第三張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/active03.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal3" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第四張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/active04.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal4" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第五張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/active05.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal5" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+    
+                </li>
+              </ul>
+              <!-- 放大的跳出圖片 -->
+              <!-- 第一張放大 -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <img src="./img/active01.png" alt="Enlarged Image">
+                  <p class="text-center md-t">山林蘚語探險</p>
+                  <p class="text-center md-b">這場夢幻的生態探險中，參與者將穿越覆滿青苔的丘陵和溪流，探索如同微觀世界的奇異景觀。這次活動設有各種趣味挑戰和旗幟尋寶，讓您與家人和朋友在大自然中盡情享受歡樂時光。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+                <!-- 第二張放大 -->
+              </div>
+              <div id="modal2" class="modal">
+                <div class="modal-content">
+                  <img src="./img/active02.png" alt="Enlarged Image">
+                  <p class="text-center md-t">抹茶山之旅</p>
+                  <p class="text-center md-b">帶您走進一片綠意盎然的夢幻世界，探索如同抹茶般濃郁的青苔山丘和清澈見底的溪流。在這裡，您將參與各種有趣的戶外活動，感受自然的純粹與美好。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+                <!-- 第三張放大 -->
+              </div>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <img src="./img/active03.png" alt="Enlarged Image">
+                  <p class="text-center md-t">抹茶山之旅</p>
+                  <p class="text-center md-b">帶您走進一片綠意盎然的夢幻世界，探索如同抹茶般濃郁的青苔山丘和清澈見底的溪流。在這裡，您將參與各種有趣的戶外活動，感受自然的純粹與美好。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第四張放大 -->
+              <div id="modal4" class="modal">
+                <div class="modal-content">
+                  <img src="./img/active04.png" alt="Enlarged Image">
+                  <p class="text-center md-t">抹茶山之旅</p>
+                  <p class="text-center md-b">帶您走進一片綠意盎然的夢幻世界，探索如同抹茶般濃郁的青苔山丘和清澈見底的溪流。在這裡，您將參與各種有趣的戶外活動，感受自然的純粹與美好。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第五張放大 -->
+              <div id="modal5" class="modal">
+                <div class="modal-content">
+                  <img src="./img/active05.png" alt="Enlarged Image">
+                  <p class="text-center md-t">抹茶山之旅</p>
+                  <p class="text-center md-b">帶您走進一片綠意盎然的夢幻世界，探索如同抹茶般濃郁的青苔山丘和清澈見底的溪流。在這裡，您將參與各種有趣的戶外活動，感受自然的純粹與美好。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 圖片播放-end -->
+            <div class="text-container d-flex flex-column flex-wrap" style="padding-right: 0px;">
+              <kbd style="width: fit-content;">1/2</kbd>
+              <h4>Moss carpets stones-山林與苔</h4>
+              <p>MossVilla,隱匿於蒼翠山林,帶您深入大自然的懷抱。在這裡,可以漫步於山丘之上,棲身於苔下,觸摸它們柔軟的身軀,感受它們在森林中編織的綠色生命之線。<br>
+              提供專業的自然導覽,讓您親近並了解這片生態的奧妙。在mossvilla,呼吸山林,讓自然的力量恢復您的心靈平和。</p>
+              <div class="btns  justify-content-between d-flex ">
+                <button class="btn btn-circle">查看所有活動</button>
+                <div class="button_group_活動圖片  justify-content-start d-flex ">
+                  <div class="btn btn-active prev-btn"><i class="bi bi-arrow-left"></i></div>
+                  <div class="btn btn-active next-btn"><i class="bi bi-arrow-right"></i></div>
+                </div>
+              </div>
+            
+            </div>
+
+              
+          </div>
+        <!-- 第二組 -->
+        <div class="container-活動輪播2 mt-4 d-flex flex-column ms-auto">
+            <ul class="active-img輪播2">
+                <!-- 第一張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/food01.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal-food1" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第二張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/food02.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal-food2" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第三張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/food03.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal-food3" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第四張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/food04.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal-food4" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第五張活動 -->
+                <li>
+                  <div class="image-container">
+                    <img src="./img/food05.png" alt="">
+                    <div class="overlay">
+                      <a href="#modal-food5" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <!-- 第6張活動 -->
+                <li>
+                    <div class="image-container">
+                      <img src="./img/food06.png" alt="">
+                      <div class="overlay">
+                        <a href="#modal-food6" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                      </div>
+                    </div>
+                  </li>
+                <!-- 第7張活動 -->
+                <li>
+                    <div class="image-container">
+                      <img src="./img/food07.png" alt="">
+                      <div class="overlay">
+                        <a href="#modal-food7" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                      </div>
+                    </div>
+                  </li>
+                <!-- 第8張活動 -->
+                <li>
+                    <div class="image-container">
+                      <img src="./img/food08.png" alt="">
+                      <div class="overlay">
+                        <a href="#modal-food8" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                      </div>
+                    </div>
+                  </li>
+                <!-- 第9張活動 -->
+                <li>
+                    <div class="image-container">
+                      <img src="./img/food09.png" alt="">
+                      <div class="overlay">
+                        <a href="#modal-food9" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                      </div>
+                    </div>
+                  </li>
+                <!-- 第10張活動 -->
+                <li>
+                    <div class="image-container">
+                      <img src="./img/food10.png" alt="">
+                      <div class="overlay">
+                        <a href="#modal-food10" class="view-more">查看更多 <span class="arrow2">&#8594;</span></a>
+                      </div>
+                    </div>
+                  </li>
+              </ul>
+              <!-- 放大的跳出圖片 -->
+              <!-- 美食6-10補充放大的圖片替換 -->
+              <!-- 第一張放大 -->
+              <div id="modal-food1" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food01.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+                <!-- 第二張放大 -->
+              </div>
+              <div id="modal-food2" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food02.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+                <!-- 第三張放大 -->
+              </div>
+              <div id="modal-food3" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food03.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第四張放大 -->
+              <div id="modal-food4" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food04.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第五張放大 -->
+              <div id="modal-food5" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food05.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第6張放大 -->
+              <div id="modal-food6" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food06.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第7張放大 -->
+              <div id="modal-food7" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food07.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第8張放大 -->
+              <div id="modal-food8" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food08.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>
+              <!-- 第9張放大 -->
+              <div id="modal-food9" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food09.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>     
+              <!-- 第10張放大 -->
+              <div id="modal-food10" class="modal">
+                <div class="modal-content">
+                  <img src="./img/food10.png" alt="Enlarged Image">
+                  <p class="text-center md-t">漂流木餐廳</p>
+                  <p class="text-center md-b">漂流木餐廳邀您在自然環境中品味由新鮮食材精心烹製的美味佳餚，體驗獨特的戶外用餐氛圍。餐廳以漂流木為主題，裝飾充滿自然氣息，讓您在大自然的懷抱中享受用餐的樂趣。</p>
+                  <a href="#main4" class="close">&times;</a>
+                </div>
+              </div>          
+            <div class="text-container f-flex flex-column">
+                <kbd>2/2</kbd>
+                <h4>Soft moss beneath-新蘚美食</h4>
+                <p>美食體驗同樣源於大自然的豐饒，精心挑選當地最新鮮的食材。我們的山野套餐展現自然的原始風味，包含松茸、野菌與山薺等野生食材，搭配當季蔬菜。
+                    <br>而清泉鱒魚，來自附近的山泉，烹煮方式輕柔以保留魚肉的鮮嫩與清甜，並配以草本香料使味道更加清新獨特。
+                    
+                    <br>在甜點方面，我們推出了苔蘚主題甜點，抹茶慕斯與薄荷冰淇淋，不僅美觀，更增添一絲森林的幽香。
+                    <br>此外，旅館提供一系列本地釀造的果酒與蜂蜜酒，每一款都帶有獨特的地方特色，是餐後不可錯過的甜蜜享受。
+                    <br>我們還精選當地野生草本，如金銀花、菊花與山茶，泡製成的茶不僅香氣撲鼻，還有助於放鬆與清新身心。</p>
+                    <div class="btns  justify-content-between d-flex">
+                      <button href="#restaurantModal" class="btn btn-circle " onclick="openModal('restaurantModal')">查看所有餐廳</button>
+                      <div class="button_group_活動圖片  justify-content-start d-flex ">
+                        <div class="btn btn-active prev-btn"><i class="bi bi-arrow-left"></i></div>
+                        <div class="btn btn-active next-btn"><i class="bi bi-arrow-right"></i></div>
+                      </div>
+                    </div>
+                  </div>
+
+          </div>
+          <!-- 第二組 -->
+    </div>
+    <!-- 第一組 -->
+    
+  </main>
+
+
+<!-- main-5房間&訂房 ，這是物件放中間+標題在頭上的版本-->
+<main id="main5" class="main5">
+  <!-- 手機板標題 -->
+  <div class="d-sm-block d-xl-none text-center justify-content-center h2" style="width:90%;">
+    <i class="bi bi-house-door-fill"></i>房間選擇
+  </div>
+  <!-- 電腦板標題 -->
+    <div class="sticky-top sticky-top-h2 d-none d-xl-block text-center h2" style="width: 20%;">
+      <i class="bi bi-house-door-fill"></i>房間選擇
+    </div>
+    <!-- 內容 -->
+    <!-- 這邊的d-flex要放 -->
+    <div class="d-flex flex-column" >
+      <!-- 這邊也要放 -->
+      <!-- 01訂房的東西 -->
+        <div id="booking-form" class="scoped d-flex flex-column justify-content-center booking-form container ms-auto ">
+          <h2>立即訂房</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="arrival-date">入住日期</label>
+              <div class="date-input-wrapper">
+                <input type="text" id="arrival-date" name="arrival-date" class="datepicker"  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="departure-date">退房日期</label>
+              <div class="date-input-wrapper">
+                <input type="text" id="departure-date" name="departure-date" class="datepicker" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="check-in-time">入住時段</label>
+              <select id="check-in-time" name="check-in-time" required>
+                <option value="">選擇時段</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adults">成人人數</label>
+              <select id="adults" name="adults" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="other">contact us</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="children">兒童人數</label>
+              <select id="children" name="children" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="other">contact us</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" id="check-availability" class="btn moss-btn mx-auto">
+            <span>訂房詳情</span>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </button>
+        </div>
+        <div id="booking-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>立即訂房</h2>
+            <p id="booking-details"></p>
+            <a href="./room-desc/cart.html" class="btn moss-btn2">查看購物車</a>
+          </div>
+        </div>
+        <!-- 01訂房的東西-end -->
+
+        <!-- 02房間 -->
+        <div id="room-card" class="main mt-5">
+          <h1>.</h1>
+          <span class="d-flex justify-content-center align-items-center">mosscope villa</span>
+          <ul class="cards">
+            <!-- 第一張卡牌 -->
+            <li class="cards_item">
+              <div class="card">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="mySlides1 ">
+                    <img class="img-fluid" src="./img/room/room_us_雙人床-1.png">
+                    <div class="numbertext">1 / 3</div>
+                  </div>
+                  <div class="mySlides1">
+                    <img src="./img/room/room_us_雙人床-2.png">
+                    <div class="numbertext">2 / 3</div>
+                  </div>
+                  <div class="mySlides1">
+                    <img class="img-fluid" src="./img/room/room_us_雙人床-3.png">
+                    <div class="numbertext">3 / 3</div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container d-none">
+                    <span class="dot1" onclick="currentSlide(1, 1)"></span>
+                    <span class="dot1" onclick="currentSlide(2, 1)"></span>
+                    <span class="dot1" onclick="currentSlide(3, 1)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">秋.吉時吉日</h2>
+                  <p class="card_text pt-1">"秋季的醉人色彩完美展現，房間內部裝飾以濃郁的栗色與金黃色調，並巧妙融入苔蘚，營造出一片秋日森林的幽靜與豐饒。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+        
+            <!-- 第二張卡牌 -->
+            <li class="cards_item">
+              <div class="card">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="mySlides2">
+                    <img  class="img-fluid" src="./img/room/room_jp_雙人單床-1.png">
+                    <div class="numbertext">1 / 3</div>
+                  </div>
+                  <div  class="mySlides2">
+                    <img  class="img-fluid" src="./img/room/room_jp_雙人單床-2.png">
+                    <div class="numbertext">2 / 3</div>
+                  </div>
+                  <div class="mySlides2">
+                    <img  class="img-fluid" src="./img/room/room_jp_雙人單床-3.png">
+                    <div class="numbertext">3 / 3</div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container">
+                    <span class="dot2" onclick="currentSlide(1, 2)"></span>
+                    <span class="dot2" onclick="currentSlide(2, 2)"></span>
+                    <span class="dot2" onclick="currentSlide(3, 2)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">春.萬物居</h2>
+                  <p class="card_text pt-1">春天的生機勃勃在這間房間中盡展無遺，淡雅的綠色調與苔蘚裝飾共同織就一幅生命力盎然的畫卷。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+        
+            <!-- 第三張卡牌 -->
+            <li class="cards_item">
+              <div class="card">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="mySlides3">
+                    <img src="./img/room/room_jp_雙人床-1.png">
+                    <div class="numbertext">1 / 3</div>
+                  </div>
+                  <div class="mySlides3">
+                    <img src="./img/room/room_jp_雙人床-2.png">
+                    <div class="numbertext">2 / 3</div>
+                  </div>
+                  <div class="mySlides3">
+                    <img src="./img/room/room_jp_雙人床-3.png">
+                    <div class="numbertext">3 / 3</div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container">
+                    <span class="dot3" onclick="currentSlide(1, 3)"></span>
+                    <span class="dot3" onclick="currentSlide(2, 3)"></span>
+                    <span class="dot3" onclick="currentSlide(3, 3)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">午間</h2>
+                  <p class="card_text pt-1">"擁抱午後的寧靜，配備私人溫泉，周圍環繞著苔蘚和輕蔓的自然裝飾，讓身心得到深度的放鬆與恢復。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+        
+            <!-- 第四張卡牌 -->
+            <li class="cards_item">
+              <div class="card">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="mySlides4">
+                    <img src="./img/room/room_usexp_雙人床-1.png">
+                    <div class="numbertext">1 / 3</div>
+                  </div>
+                  <div class="mySlides4">
+                    <img src="./img/room/room_usexp_雙人床-2.png">
+                    <div class="numbertext">2 / 3</div>
+                  </div>
+                  <div class="mySlides4">
+                    <img src="./img/room/room_usexp_雙人床-3.png">
+                    <div class="numbertext">3 / 3</div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 4)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 4)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container">
+                    <span class="dot4" onclick="currentSlide(1, 4)"></span>
+                    <span class="dot4" onclick="currentSlide(2, 4)"></span>
+                    <span class="dot4" onclick="currentSlide(3, 4)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">森之境</h2>
+                  <p class="card_text pt-1">深入森林的秘密角落，這間房以森林為靈感，內部大量使用苔蘚和木材元素，打造出一個既神秘又奢華的避世天堂。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+        
+            <!-- 第五張卡牌 -->
+            <li class="cards_item">
+              <div class="card">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="mySlides5">
+                    <img src="./img/room/room_jpexp_雙人床-1.png">
+                    <div class="numbertext">1 / 3</div>
+                  </div>
+                  <div class="mySlides5">
+                    <img src="./img/room/room_jpexp_雙人床-2.png">
+                    <div class="numbertext">2 / 3</div>
+                  </div>
+                  <div class="mySlides5">
+                    <img src="./img/room/room_jpexp_雙人床-3.png">
+                    <div class="numbertext">3 / 3</div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 5)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 5)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container">
+                    <span class="dot5" onclick="currentSlide(1, 5)"></span>
+                    <span class="dot5" onclick="currentSlide(2, 5)"></span>
+                    <span class="dot5" onclick="currentSlide(3, 5)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">和安果屋</h2>
+                  <p class="card_text pt-1">"和風悠然，房間以日式設計為主題，結合苔蘚的綠意和水果的甜蜜，是尋求心靈平和之人的完美選擇。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+        
+            <!-- 第六張卡牌 -->
+            <li class="cards_item">
+              <div class="card ">
+                <!-- Slideshow container -->
+                <div class="slideshow-container d-flex ">
+                  <!-- Full-width images with number and caption text -->
+                  <div class="slide-group">
+                    <div class="mySlides6 ">
+                      <img src="./img/room/room_usnature_雙人床-1.png">
+                      <div class="numbertext">1 / 3</div>
+                    </div>
+                    <div class="mySlides6">
+                      <img src="./img/room/room_usnature_雙人床-2.png">
+                      <div class="numbertext">2 / 3</div>
+                    </div>
+                    <div class="mySlides6">
+                      <img src="./img/room/room_usnature_雙人床-3.png">
+                      <div class="numbertext">3 / 3</div>
+                    </div>
+                  </div>
+                  <!-- Next and previous buttons -->
+                  <a class="prev" onclick="plusSlides(-1, 6)">&#10094;</a>
+                  <a class="next" onclick="plusSlides(1, 6)">&#10095;</a>
+                  <!-- The dots/circles -->
+                  <div class="dot-container">
+                    <span class="dot6" onclick="currentSlide(1, 6)"></span>
+                    <span class="dot6" onclick="currentSlide(2, 6)"></span>
+                    <span class="dot6" onclick="currentSlide(3, 6)"></span>
+                  </div>
+                </div>
+                <div class="card_content">
+                  <h2 class="card_title">晨曦</h2>
+                  <p class="card_text pt-1">"清晨第一縷陽光透過窗戶灑入，從森林、河谷、川林傳來地球轉動的告知。第一時間聆聽世界。"</p>
+                  <a href="./room.html" class="btn card_btn">Read More</a>
+                </div>
+              </div>
+            </li>
+          </ul> 
+          <h3 class="made_by"> mosscope villa</h3>
+        </div>
+  </main>
+
+    <!-- main-6-交通指南-start -->
+    <main id="main6" class="main6">
+      <!-- 手機板標題 -->
+      <div class="d-sm-block d-xl-none text-center justify-content-center h2" style="width: 90%;">
+        <i class="bi bi-house-door-fill"></i>交通指南
+        <br><br><br><br>
+      </div>
+      <!-- 電腦板標題 -->
+      <div class="sticky-top sticky-top-h2 d-none d-xl-block text-center h2" style="width: 20%;">
+        <i class="bi bi-house-door-fill"></i>交通指南
+      </div>
+      <!-- 內容 -->
+      <!-- 這邊的d-flex要放 -->
+      <div class="d-flex flex-column justify-content-center text-center" >
+        <div class="text-body7 d-flex flex-wrap justify-content-center align-items-center">
+
+          <div class="text-start" style="position: relative;bottom: 2.8rem;">
+            <h4  class="d-flex align-items-center text-start justify-content-between" >詳細地點資訊 <a href="#trafficAccordion" class="btn btn-circle">查看更多指南</a>
+            </h4>  
+            <hr>
+            <h6 class="my-5">礁溪經典渡假飯店-MOSSCOPE VILLA <br>
+              宜蘭縣資策市礁溪鄉66段66號(02-1234-5678)<br>          
+              Mapcode: 612 853 667*28<br> </h6>
+              <hr>
+              <small style="color: darkgray;">*此外提供從桃園機場捷運、台北車站、高雄小港機場專車前往mosscope villa的班車服務。</small>
+              <br>
+              <small style="color: darkgray;">*僅飯店的客人可以乘車。</small>
+          </div>
+          
+        </div>
+        
+        <!-- 這邊也要放 -->
+        <!-- 交通指南下拉風琴-start -->
+        <div >
+          <div class="container map-container" style="height: 30rem;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57945.26849487721!2d121.72489479995023!3d24.809855958098712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3467fa4947d62aa9%3A0xd2e0786dfa1f3704!2zMjYy5a6c6Jit57ij56SB5rqq6YSJ56SB5rqq!5e0!3m2!1szh-TW!2stw!4v1715871604472!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <h3  class="made_by"><a style="color: #29B286;" href="https://maps.app.goo.gl/aatNusF2VtMoEdHu5">google map<i class="ms-2 bi bi-arrow-right"></i></a></h3>
+        <!-- 從這邊開始放在跟container同位階的地方就會跟外框一樣大，
+        放在跟main同位階就會跟螢幕範圍一樣大 -->
+          <div class="accordion traffic-accordion" id="trafficAccordion">
+            <!-- 交通方式1-自行開車 -->
+            <div class="accordion-item " >
+              <h2 class="accordion-header" id="selfDrivingHeading">
+                <button class="accordion-button traffic-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#selfDrivingCollapse" aria-expanded="false" aria-controls="selfDrivingCollapse">
+                  <span class="accordion-icon"></span>
+                  自行開車
+                </button>
+              </h2>
+              <div id="selfDrivingCollapse" class="accordion-collapse collapse show" aria-labelledby="selfDrivingHeading" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                  <h5 class="text-center">自行開車-桃園國際機場</h5>
+                  <hr>
+                  <p>
+                    <ul  class="text-start">
+                      <li>路線：從桃園國際機場出發，沿國道1號（中山高速公路）南下，轉入國道3號，再接國道5號通過雪山隧道，然後沿省道台9線前往礁溪。</li>
+                      <li>時間：約2小時，視交通狀況而定。</li>
+                    </ul>
+                  </p>
+                 
+                  <br>
+    
+                    <h5 class="text-center">自行開車-台北車站</h5>
+                    <hr>
+                    <p>
+                      <ul  class="text-start">
+                        <li>路線：從台北出發，經國道5號（北宜高速公路），通過雪山隧道，然後沿省道台9線前往礁溪。</li>
+                        <li>時間：約1小時至1.5小時，視交通狀況而定。</li>
+                      </ul>
+                    </p>
+                    <button class="btn btn-circle my-3">查看當日交通狀態<i class="bi bi-arrow-right-circle"></i></button><br>
+                </div>
+              </div>
+            <!-- 交通方式2-大眾運輸公車&捷運 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="busHeading">
+                <button class="accordion-button traffic-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#busCollapse" aria-expanded="false" aria-controls="busCollapse">
+                  <span class="accordion-icon"></span>
+                  大眾運輸公車與台鐵
+                </button>
+              </h2>
+              <div id="busCollapse" class="accordion-collapse collapse" aria-labelledby="busHeading" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                  <h5 class="text-center">機場捷運</h5>
+                  <p>桃園國際機場搭乘機場捷運至台北車站</p>
+                  <hr>
+                  <p>
+                    <ul  class="text-start">
+                      <li>時間：約35分鐘。</li>
+                    </ul>
+                  </p>
+                 
+                  <br>
+    
+                    <h5 class="text-center">轉乘台鐵</h5>
+                    <p>在台北車站轉乘台鐵（區間車或自強號）前往礁溪火車站。</p>
+                    <hr>
+                    <p>
+                      <ul  class="text-start">
+                        <li>時間：大約需時1.5至2小時，視乎列車類型和班次</li>
+                        <li>票價：約100至200新台幣。</li>
+                      </ul>
+                    </p>
+                    <button class="btn btn-circle my-3">查看當日公車動線<i class="bi bi-arrow-right-circle"></i></button><br>
+                </div>
+              </div>
+            <!-- 交通方式3-台鐵 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="trainHeading">
+                <button class="accordion-button traffic-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trainCollapse" aria-expanded="false" aria-controls="trainCollapse">
+                  <span class="accordion-icon"></span>
+                  搭乘客運&捷運
+                </button>
+              </h2>
+              <div id="trainCollapse" class="accordion-collapse collapse" aria-labelledby="trainHeading" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                  <h5 class="text-center">桃園機場客運</h5>
+                  <hr>
+                  <p>
+                    <ul  class="text-start">
+                      <li>時間：約2至2.5小時，視交通狀況而定。</li>
+                      <li>頻率：每天有數班，大約每1至2小時一班。</li>
+                    </ul>
+                  </p>
+                 
+                  <br>
+    
+                    <h5 class="text-center">台北車站捷運</h5>
+                    <hr>
+                    <p>
+                      <ul  class="text-start">
+                        <li>step1.桃園國際機場搭乘機場捷運至台北車站</li>
+                        <li>step2.在台北轉運站轉乘國光客運或其他客運公司的巴士直達礁溪</li>
+                      </ul>
+                    </p>
+                    <div class="button_group">
+                      <button class="btn btn-circle my-1">桃園機場客運時刻表<i class="bi bi-arrow-right-circle"></i></button><br>
+                      <button class="btn btn-circle my-1">台北車站捷運路線時刻表<i class="bi bi-arrow-right-circle"></i></button><br>
+                    </div>
+                </div>
+              </div>
+        <!-- 交通方式4-高鐵 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="hsrHeading">
+                <button class="accordion-button traffic-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hsrCollapse" aria-expanded="false" aria-controls="hsrCollapse">
+                  <span class="accordion-icon"></span>
+                  搭乘高鐵
+                </button>
+              </h2>
+              <div id="hsrCollapse" class="accordion-collapse collapse" aria-labelledby="hsrHeading" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                  <h5 class="text-center">免費班車（需要預約）</h5>
+                  <hr>
+                  <p class="text-start">
+                    提供從八戶站、青森站、新青森站、和Mosscope Villa特定站點(位於車站大廳東門口)到飯店的班車服務。
+                    <br>僅飯店客人可以搭乘。
+                  </p>
+                  <button class="btn btn-circle my-3">查看預約情況(touch me)</button><br>
+                  <small  class="text-start"><strong>***需要提前2天預訂。</strong></small>
+              </div>
+              </div>
+            <!-- 交通方式5-飛機 -->
+              <div class="accordion-item">
+              <h2 class="accordion-header" id="飛機">
+                <button class="accordion-button traffic-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#飛機Collapse" aria-expanded="false" aria-controls="飛機Collapse">
+                  <span class="accordion-icon"></span>
+                  搭乘飛機
+                </button>
+              </h2>
+              <div id="飛機Collapse" class="accordion-collapse collapse" aria-labelledby="飛機" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                  <h5 class="text-center">主要機場</h5>
+                  <hr>
+                  <p class="text-start">
+                    <ul class="text-start">
+                      <li>
+                        <p>使用租車、出租車時:約80分鐘</p>
+                        <a href="">– 定額出租車 –</a>
+                        <br>
+                        <small><strong>※冬季約150分鐘。時間會根據交通狀況有所變動。</strong></small>
+                      </li>
+                      <li>
+                        <p>免費接送巴士:</p>
+                        <p> JR青森站乘JR巴士約35分鐘，青森站乘免費接送巴士約90-120分鐘</p>
+                      </li>
+                    </ul>
+                    <p class="text-start ms-5">
+                      ―免費接送巴士時間―
+                      <br>【2024年4月1日~11月10日】
+                      <br> 青森站3:20PM發車
+                      <br>奧入瀨溪流酒店10:30 AM發車
+                    </p>
+                  </p>
+                  <button class="btn btn-circle my-3">查看預約情況(touch me)</button><br>
+                  <small  class="text-start" style="color: rgb(196, 196, 196);"><strong>※預約受理一旦滿員就結束了。。</strong></small><br>
+                  <small  class="text-start" style="color: rgb(196, 196, 196);"><strong>※雖然是準時出發，但是根據交通情況和天氣狀況，出發、到達有延遲的情況。</strong></small>
+              </div>
+              </div>
+            </div>
+            <!-- 交通方式6-免費班車 -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="接駁車">
+                <button class="accordion-button traffic-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#接駁車Collapse" aria-expanded="false" aria-controls="接駁車Collapse">
+                  <span class="accordion-icon"></span>
+                  免費班車（需要預約）
+                </button>
+              </h2>
+              <div id="接駁車Collapse" class="accordion-collapse collapse" aria-labelledby="接駁車" data-bs-parent="#trafficAccordion">
+                <div class="accordion-body traffic-accordion-body p-3">
+                    <h5 class="text-center">免費班車（需要預約）</h5>
+                    <hr>
+                    <p class="text-start">
+                      提供從八戶站、青森站、新青森站、和Mosscope Villa特定站點(位於車站大廳東門口)到飯店的班車服務。
+                      <br>僅飯店客人可以搭乘。
+                    </p>
+                    <button class="btn btn-circle my-3">查看預約情況(touch me)</button><br>
+                    <small  class="text-start"><strong>***需要提前2天預訂。</strong></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 交通指南下拉風琴-start -->
+      </div>
+    </main>
+    <!-- main-6-交通指南-end -->
+
+
+    <!-- main-7-服務設備-start活動頁面 -->
+    <main id="main7" class="main7">
+      <!-- 手機板標題 -->
+      <div class="d-sm-block d-xl-none text-center justify-content-center h2" style="width: 90%;">
+        ......<i class="bi bi-house-door-fill"></i>飯店服務
+      </div>
+      <!-- 電腦板標題 -->
+      <div class="sticky-top sticky-top-h2 d-none d-xl-block text-center h2" style="width: 20%;">
+        <i class="bi bi-house-door-fill"></i>飯店服務
+      </div>
+      <!-- 內容 -->
+      <!-- 這邊的d-flex要放 -->
+      <div class="d-flex justify-content-center text-center">
+        <!-- test -->
+        <!-- container刪掉就會設定在整張範圍 -->
+        <div class='container'>
+          <!-- row-cols-2控制最小尺寸時卡片有幾個 -->
+          <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3  g-3">
+            <!-- surver-card1 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fa-sharp fa-solid fa-bed text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">房間總數</h5>
+                    <p class="card-text room-count">187 間客房、2棟、72ha</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card2 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-map-marked-alt text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">地圖</h5>
+                    <p class="card-text map-links">→Floor Map →Oirase Keiryu Map</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card3 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-users text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">房間容量</h5>
+                    <p class="card-text room-capacity">1-5 位</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!-- surver-card4 -->
+<div class="col">
+  <div class="room-info-card">
+    <div class="card-body d-flex align-items-center">
+      <div class="icon-bg rounded-circle">
+        <i class="fas fa-utensils text-white"></i>
+      </div>
+      <div class="ms-3">
+        <h5 class="card-title">餐廳</h5>
+        <p class="card-text restaurant-count">3 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 餐廳模態框 -->
+<div id="restaurantModal" class="modal-4">
+  <div class="modal-content">
+    <!-- title -->
+    <div class="restaurant-modal-header py-3">
+      <h5 class="modal-title">餐廳詳情</h5>
+      <span class="close" onclick="closeModal('restaurantModal')">&times;</span>
+    </div>
+    <!-- restaurant-card-group -->
+    <div class="modal-content-card d-flex">
+      <!-- card1 -->
+      <div class="restaurant-item d-flex flex-wrap justify-content-center">
+        <img src="./img/food01.png" alt="" class=" restaurant-image">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">Moss morning</h6>
+          <p class="restaurant-hours">營業時間: 6:30 AM~10:00 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">早餐廳房</p>
+          <p class="restaurant-extra">（最後入場 9:30 AM）</p>
+        </div>
+      </div>
+      <!-- card2 -->
+      <div class="restaurant-item  d-flex flex-wrap justify-content-center">
+        <img src="./img/food02.png" alt="" class="img restaurant-image img-fluid">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">青森鳳梨廚房</h6>
+          <p class="restaurant-hours">營業時間: 10:30 PM~4:30 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">下午茶</p>
+          <p class="restaurant-extra">（最後入場 3:30 AM）</p>
+        </div>
+      </div>
+      <!-- card3 -->
+      <div class="restaurant-item  d-flex flex-wrap justify-content-center">
+        <img src="./img/food03.png" alt="" class="img restaurant-image img-fluid">
+        <div class="restaurant-details">
+          <h6 class="restaurant-name">漂流木餐廳</h6>
+          <p class="restaurant-hours">營業時間: 5:30 PM~9:30 PM</p>
+          <p class="restaurant-note">不同時期營業時間不同。</p>
+          <hr class="restaurant-separator">
+          <p class="restaurant-extra">晚餐</p>
+          <p class="restaurant-extra">（最後入場 8:30 AM）</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            <!-- surver-card5 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-spa text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">水療/按摩</h5>
+                    <p class="card-text spa-count">1 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card6 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-hot-tub text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">溫泉</h5>
+                    <p class="card-text onsen-count">1 <a href="#restaurantModal" class="more-details-link" onclick="openModal('restaurantModal')">更多詳細</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card7 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-door-open text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">入住/退房</h5>
+                    <p class="card-text checkin-time">入住: 3:00 PM / 12:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card8 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-wifi text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">Wi-Fi上網</h5>
+                    <p class="card-text wifi-info">所有區域均提供免費Wifi。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card9 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-child text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">兒童同住</h5>
+                    <p class="card-text children-info">最大六歲可以免費與成人同睡，有關房可容納人仕成人同樣數目的同睡兒童。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card10 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-paw text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">寵物</h5>
+                    <p class="card-text pet-info">允許</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card11 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-birthday-cake text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">紀念日、慶祝活動</h5>
+                    <p class="card-text celebration-info">→ 花束、蛋糕、葡萄酒（需要額外4日前預約）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card12 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-shuttle-van text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">接駁服務</h5>
+                    <p class="card-text shuttle-info">→ 有</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card13 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-parking text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">停車場</h5>
+                    <p class="card-text parking-info">戶外100台</p>
+                    <p class="card-subtext">※不需要預約</p>
+                    <p class="card-subtext">現場接待當日接受，先到先得</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card14 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-charging-station text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">充電站</h5>
+                    <p class="card-text charging-info">24小時可使用（收費）</p>
+                    <p class="card-subtext">CHAdeMO x 2, 200V/3.2kw x 1</p>
+                    <p class="card-subtext">→ 預約：入住預約後可申請<br>現場接待當日接受，先到先得</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card15 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-credit-card text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">線上付款</h5>
+                    <p class="card-text payment-info">Visa、Mastercard、美國運通卡、大來卡、JCB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- surver-card16 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-credit-card text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">到店付款</h5>
+                    <p class="card-text payment-info">現金、信用卡</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card17 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fa-solid fa-otter text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">服務設備</h5>
+                    <p class="card-text payment-info">
+                      <i class="fa-solid fa-o"></i>餐廳
+                      <i class="fa-solid fa-x"></i>咖啡廳/休息室
+                      <i class="fa-solid fa-o"></i>水療/按摩
+                      <br>
+                      <i class="fa-solid fa-x"></i>兒童遊樂區
+                      <i class="fa-solid fa-o"></i>戲水池
+                      <i class="fa-solid fa-x"></i>溫泉
+                      <br>
+                      <i class="fa-solid fa-o"></i>溫浴設施
+                      <i class="fa-solid fa-x"></i>會議室
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- surver-card18 -->
+            <div class="col">
+              <div class="room-info-card">
+                <div class="card-body d-flex">
+                  <div class="icon-bg rounded-circle">
+                    <i class="fas fa-spa text-white"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="card-title">其他</h5>
+                    <p class="card-text spa-count">*宅配（住宿行李請註明住宿代表人姓名、預定入住日後再配送）</p>
+                    <p class="card-text spa-count">*全館禁煙</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  <footer id="footer">
+    <div class="row">
+      <div class="d-flex flex-column align-items-center justify-content-center mb-4">
+        <img src="./img/LOGO-F-08.png" class="logo" alt="logo">
+        <p class="text-center">The series of the poster presented how we build our dreams from scratch to reality.<br><br>It also shows that most things we see in the world is designed thoroughly by all kinds of designers.</p>
+      </div>
+      <div class="col">
+        <h3>FAQ <div class="underline"><span></span></div></h3>
+        <h6>訂購問題</h6>
+        <div class="social-icons d-flex justify-content-start">
+          <i class="bi bi-bag-check-fill"></i>
+          <i class="bi bi-bag-x-fill"></i>
+          <i class="bi bi-question-circle-fill"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-chat-dots-fill"></i>
+        </div>
+        <h6>Join Us</h6>
+        <small><a href="" >Team Information</a></small><br>
+        <small><a href="">Recruitment Information</a></small>
+      </div>
+      <div class="col">
+        <h3>contact us <div class="underline"><span></span></div></h3>
+        <p>礁溪經典渡假飯店-MOSSCOPE VILLA </p>
+        <p><i class="bi bi-geo-alt-fill"></i>宜蘭縣資策市礁溪鄉66段66號(02-1234-5678),Taiwan</p>
+        <p class="email-id"><i class="bi bi-envelope-fill"></i>mosscopevilla0604@gmail.com</p>
+        <h5><i class="bi bi-telephone-fill"></i>+05-2424-4242</h5>
+      </div>
+      <div class="col" >
+        <h3>Links<div class="underline"><span></span></div></h3>
+        <div class="d-flex gap-3">
+          <ul class="align-items-start">
+            <li><a href="#">Home</a></li>
+            <li><a href="#main2">About</a></li>
+            <li><a href="#main4">Active</a></li>
+            <li><a href="#main5">Room</a></li>
+          </ul>
+          <ul class="align-items-start">
+            <li><a href="#main3">belief</a></li>
+            <li><a href="#main6">Map</a></li>
+            <li><a href="#main7">Services</a></li>
+            <li><a href="#footer">Contact us</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="col">
+        <h3>獲得最新資訊<div class="underline"><span></span></div></h3>
+        <form action="get">
+          <i class="bi bi-envelope-at-fill"></i>
+          <input type="email" placeholder="aaa@gmail.com" required>
+          <button type="submit"><i class="bi bi-arrow-right"></i></button>
+        </form>
+        <div class="social-icons d-flex justify-content-between">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter-x"></i>
+          <i class="bi bi-line"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-youtube"></i>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="copyright text-center">©2024 MOSSCOPE Team</p>
+    
+  </footer>
+<!-- loading動畫-start -->
+<div id="loading-all" class="loading-overlay">
+  <div class="solar-system">
+    <div class="earth-orbit orbit">
+      <div class="planet earth"></div>
+      <div class="venus-orbit orbit">
+        <div class="planet venus"></div>
+        <div class="mercury-orbit orbit">
+          <div class="planet mercury"></div>
+          <div class="sun">
+            <img class="logo" src="./img/LOGO loading-10.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- loading動畫-end -->
+<script>
+  window.addEventListener('load', function () {
+  setTimeout(function () {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    if (loadingOverlay) {
+      loadingOverlay.remove();
+    }
+  }, 500);
+});
+</script>
+
+
+<!-- 給快速訂房-s-上色用 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<!-- 給快速訂房-e-上色用 -->
+<script src="./js/bootstrap.bundle.js"></script>
+<script src="./script-1.js"></script>
+
+</body>
+</html>
